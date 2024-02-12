@@ -8,6 +8,7 @@ The user is then prompted in stages:
 ## Common Suite
 - Custom Shell Prompt W/ Repo Branch Embed
 - Ranger CLI File Manager
+- Pacstall - AUR for Ubuntu
 ## Server Sided Suite
 - Docker
 - Docker-Compose
