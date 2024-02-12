@@ -13,10 +13,10 @@
         fullpath=$(realpath $file)
         if ask "Source ${file}?"; then
             echo "Appending ${file} into ~/.bashrc..."
-            #echo "source $fullpath" >> ~/.bashrc
+            echo "source $fullpath" >> ~/.bashrc
             if [ $file = shell/nala.sh ]; then
                 echo "Appending ${file} into /root/.bashrc..."
-                #echo "source $fullpath" >> /etc/bash.bashrc
+                echo "source $fullpath" >> /etc/bash.bashrc
             fi
         fi
     done
