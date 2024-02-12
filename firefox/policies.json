@@ -1,0 +1,82 @@
+{
+  "policies": {
+    "ExtensionSettings": {
+      "uBlock0@raymondhill.net": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
+      },
+        "www.mozilla.org/en-US": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi"
+      },
+        "returnyoutubedislike.com": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/return-youtube-dislikes/latest.xpi"
+      },
+        "ajay.app": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/sponsorblock/latest.xpi"
+      },
+        "robwu.nl": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/dont-track-me-google1/latest.xpi"
+      },
+        "guus.ninja": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/istilldontcareaboutcookies/latest.xpi"
+      },
+        "dev.roebert.eu": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/clearurls/latest.xpi"
+      },
+        "robgreen.me": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/sonarr-radarr-lidarr-search/latest.xpi"
+      },
+        "abdullahdiaa.com": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/youtube-container/latest.xpi"
+      },
+        "www.mozilla.org/en-US": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/facebook-container/latest.xpi"
+      },
+        "github.com/aminomancer/uc.css.js": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/libgen-engine/latest.xpi"
+      },
+        "thirdiron.com": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/libkey-nomad/latest.xpi"
+      },
+        "CNico": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/sci-hub-addon/latest.xpi"
+      },
+        "github.com/lolamtisch/MALSync": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/mal-sync/latest.xpi"
+      },
+        "add0n.com/useragent-switcher.html": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/user-agent-string-switcher/latest.xpi"
+      },
+        "NCSGeek": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/saucenao-fetcher/latest.xpi"
+      },
+        "github.com/djfdat/sci-hub-scholar": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/sci-hub-scholar/latest.xpi"
+      },
+        "github.com/dessant/search-by-image#readme": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/search_by_image/latest.xpi"
+      },
+        "speedvitals.com": {
+        "installation_mode": "normal_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/speedvitals/latest.xpi"
+      }
+    }
+  }
+}
