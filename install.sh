@@ -23,6 +23,10 @@
     if ask "Would you like to install Ranger CLI file manager?"; then
         apt install ranger
     fi
+
+    if ask "Would you like to install Pacstall - The AUR for Ubuntu?"; then
+        bash -c "$(curl -fsSL https://pacstall.dev/q/install)"
+    fi
     }
 
     function getProtonGE() {
