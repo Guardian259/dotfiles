@@ -5,10 +5,12 @@
 ##### Nala is installed by default, along with its requisites aliases. The user is then prompted in stages:
 
 ## Common Suite
+-----
 - Custom Shell Prompt W/ Repo Branch Embed
 - [Ranger](https://github.com/ranger/ranger) - CLI File Manager
 - [Pacstall](https://github.com/pacstall/pacstall) - AUR for Ubuntu
 - [Neofetch](https://github.com/dylanaraps/neofetch) - System Information Shell Tool
+- [Htop](https://htop.dev/) - Interactive Process Manager
 ## Server Sided Suite
 ------
 - [Docker](https://www.docker.com/) - Open-source Software for Deploying & Running of Containerized Applications
@@ -17,7 +19,10 @@
 ------
 - [Yakuake](https://github.com/KDE/yakuake) - Dropdown Terminal Inspired by Quake
 - [Discord](https://discord.com/) - Instant Messaging & VoIP Software
+- [Thunderbird](https://www.thunderbird.net/en-US/) - Email Client
 - Firefox Extension Preset
+
+### **Programming Suite**
 - [VSCodium](https://github.com/VSCodium/vscodium) - Open Source Release of Visual Studio Code
 - [IntelliJ Idea](https://www.jetbrains.com/idea/) - Java & Kotlin IDE
 ### **Gaming Suite**
@@ -37,11 +42,15 @@
 ### **Multi-Media Suite**
 - [Youtube-dl](https://github.com/yt-dlp/yt-dlp) - Youtube Downloader W/ Sponsor Block Integration
 - [vlc](https://www.videolan.org/vlc/) - Cross-Platform Media Player
+- [Jellyfin](https://github.com/jellyfin/jellyfin-media-player) - Personal Media Player
 ### **Office Suite**
 - [Zotero](https://www.zotero.org/) - Personal Research Assistant
 - [Calibre](https://calibre-ebook.com/) - E-book Library Manager
-- [Thunderbird](https://www.thunderbird.net/en-US/) - Email Client
+- [yEd](https://www.yworks.com/products/yed) - Graph & Flowcharting Tool
 
+### **Design Suite**
+- [LibreCAD](https://github.com/LibreCAD/LibreCAD) - 2D Parametric CAD Software
+- [FreeCAD](https://www.freecad.org/index.php) - 3D Parametric CAD Software
 
 ## Asks what files should be sourced and whether you want to install various server/DE applications by symlinking.
 ```sh
