@@ -19,38 +19,38 @@
     }
     #Base Install Function
     function commonProgams() {
-        ENDFLAG=false
-            while [ "$ENDCOMMONFLAG" == false ] 
-            do
-                read -p "Please Indicate which modules to include in your base install
-                Then press 4 to install:
+        ENDCOMMONFLAG=false
+        while [ "$ENDCOMMONFLAG" == false ] 
+        do
+            read -p "Please Indicate which modules to include in your base install
+            Then press 4 to install:
 
-                [0] ALL
+            [0] ALL
 
-                [1] Custom Shell Prompt w/ Repo Branch Embed
-                [2] Ranger CLI file manager
-                [3] Pacstall - The AUR for Ubuntu
+            [1] Custom Shell Prompt w/ Repo Branch Embed
+            [2] Ranger CLI file manager
+            [3] Pacstall - The AUR for Ubuntu
 
-                [4] Exit Prompt
-                " COMMONFLAG
-                case "${COMMONFLAG}" in
-                    0 ) FLAG=All Suites; ALLCOMMONGET=true ENDCOMMONFLAG=true continue;;
-                    1 ) FLAG=Yakuake Console; SHELLPROMPTGET=true continue;;
-                    2 ) FLAG=Firefox Extensions; RANGERGET=true continue;;
-                    3 ) FLAG=Programming Suite; PACSTALLGET=true continue;;
-                    4 ) FLAG=Exit; ENDFLAG=true continue;
-                esac
-                #Feedback to the user
-                if [ "$SHELLPROMPTGET" == true ] || [ "$ALLCOMMONGET" == true ]; then
-                    echo "The Custom Shell Prompt w/ Repo Branch Embed will be Installed"
-                fi
-                if [ "$RANGERGET" == true ] || [ "$ALLCOMMONGET" == true ]; then
-                    echo "Ranger CLI file manager will be Installed"
-                fi
-                if [ "$PACSTALLGET" == true ] || [ "$ALLCOMMONGET" == true ]; then
-                    echo "Pacstall - The AUR for Ubuntu will be Installed"
-                fi
-            done
+            [4] Exit Prompt
+            " COMMONFLAG
+            case "${COMMONFLAG}" in
+                0 ) COMMONFLAG=All Suites; ALLCOMMONGET=true ENDCOMMONFLAG=true continue;;
+                1 ) COMMONFLAG=Yakuake Console; SHELLPROMPTGET=true continue;;
+                2 ) COMMONFLAG=Firefox Extensions; RANGERGET=true continue;;
+                3 ) COMMONFLAG=Programming Suite; PACSTALLGET=true continue;;
+                4 ) COMMONFLAG=Exit; ENDCOMMONFLAG=true continue;
+            esac
+            #Feedback to the user
+            if [ "$SHELLPROMPTGET" == true ] || [ "$ALLCOMMONGET" == true ]; then
+                echo "The Custom Shell Prompt w/ Repo Branch Embed will be Installed"
+            fi
+            if [ "$RANGERGET" == true ] || [ "$ALLCOMMONGET" == true ]; then
+                echo "Ranger CLI file manager will be Installed"
+            fi
+            if [ "$PACSTALLGET" == true ] || [ "$ALLCOMMONGET" == true ]; then
+                echo "Pacstall - The AUR for Ubuntu will be Installed"
+            fi
+        done
 
         echo "Installing Nala..."
         apt install nala
