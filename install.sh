@@ -118,66 +118,106 @@
         apt install krita
     }
 
-    function getDesigning() {
-
-    }
-
-    function getOffice() {
-        echo "Installing Zotero..."
-        apt install zotero
-    }
-
-    ####################################
-    ####### Install Starts Here ########
-    ####################################
-
-    # We need root to install
-    if [ $(id -u) != "0" ]; then
-        if ask "root is required to preform install, allow root elevation?"; then
-            echo "Elevating to root..."
-            exec sudo "$0" "$@"
-        else 
-            echo "sudo privileges were not given exiting..."
-            exit 1
-        fi
-
-    fi
-
-    commonProgams
-    
-    #Server Enviorment Suite
-    if ask "Would you like to install Server Enviorment programs?"; then
-        getDocker
-        apt upgrade
-    fi
-
-    #Desktop Enviorment Suite
-    if ask "would you like to install Desktop Enviorment programs?"; then
-        if ask "Would you like to install Yakuake console?"; then
-            apt install Yakuake
-        fi
-        #Installing Thunderbird
-        echo "Installing Thunderbird..."
-        apt install thunderbird
-        #Installing Discord
-        echo "Installing Discord..."
-        wget -O discord.deb "https://discord.com/api/download/development?platform=linux&format=deb"
-        apt install ./discord.deb
-        #Installing Firefox Extensions
-        echo "Installing Firefox Extensions..."
-        apt install firefox
-        for file in firfox/*
-            if ask "Would you like to install firefox extensions?"; then
-                ln -s "$(realpath "policies.json")" /etc/firefox/
-            fi
-        done
-        getCoding
-        getGamming
+    function getMultiMedia() {
         #Installing youtube-dl
         add-apt-repository ppa:tomtomtom/yt-dlp
         echo "Installing yt-dlp..."
         apt update && apt install yt-dlp
         echo "Installing vlc..."
         apt install vlc
-        apt upgrade
-    fi
+    }
+
+    function getDesigning() {
+        true
+    }
+
+    function getOffice() {
+        echo "Installing Zotero..."
+        apt install zotero
+        echo "Installing Calibre..."
+        apt install calibre
+        #Installing Thunderbird
+        echo "Installing Thunderbird..."
+        apt install thunderbird
+    }
+
+    function serverEn() {
+        #Server Enviorment Suite
+        if ask "Would you like to install Server Enviorment programs?"; then
+            getDocker
+            apt upgrade
+        fi
+    }
+
+    function desktopEn() {
+    #   Desktop Enviorment Suite
+        if ask "would you like to install Desktop Enviorment programs?"; then
+            if ask "Would you like to install Yakuake console?"; then
+                apt install Yakuake
+            fi
+            #Installing Discord
+            echo "Installing Discord..."
+            wget -O discord.deb "https://discord.com/api/download/development?platform=linux&format=deb"
+            apt install ./discord.deb
+            #Installing Firefox Extensions
+            echo "Installing Firefox..."
+            apt install firefox
+            if ask "Would you like to install firefox extensions?"; then
+                for file in firfox/*
+                do
+                    echo "Symlinking Firefox Extensions List..."
+                    ln -s "$(realpath "policies.json")" /etc/firefox/
+                done
+            fi
+            getCoding
+            getGamming
+            getMediaEditing
+            getMultiMedia
+            getOffice
+            apt upgrade
+        fi
+    }
+
+    function installPrompt() {
+        read -p " Which Enviorment Would you like to Install??
+        [1] Server Sided Enviorment: 
+        [2] Desktop Enviorment:
+        [3] Server & Desktop Enviorments:
+
+        [4] Exit Install   
+        >" ENVIORMENT
+
+        if $ENVIORMENT != 4; then
+            if ask "You have chosen $ENVIORMENT are you sure?"; then
+                echo "Installing $ENVIORMENT Enviorment..."
+                commonProgams
+                case "${ENVIORMENT}" in
+                    1 ) ENVIORMENT=Server; serverEn return;;
+                    2 ) ENVIORMENT=Desktop; desktopEn return;;
+                    3 ) ENVIORMENT=All; serverEn && desktopEn return;;
+                esac
+            else
+                installPrompt
+            fi
+        else
+            echo "Exiting Install..."
+            exit 1;
+        fi
+        echo "Install Complete!"
+        exit 0;
+    }
+
+    ####################################
+    ####### Install Starts Here ########
+    ####################################
+    # We need root to install
+        if [ "$(id -u)" != "0" ]; then
+            if ask "root is required to preform install, allow root elevation?"; then
+                echo "Elevating to root..."
+                exec sudo "$0" "$@"
+            else 
+                echo "sudo privileges were not given exiting..."
+                exit 1
+            fi
+            prompt
+        fi
