@@ -31,4 +31,4 @@ The user is then prompted in stages:
 
     git clone https://git.salmans.dev/Guardian/dotfiles.git .dotfiles
     cd .dotfiles
-    sudo ./install.sh
+    ./install.sh
