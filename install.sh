@@ -123,7 +123,7 @@
         apt install gimp
         echo "Installing Krita..."
         apt install krita
-                echo "Installing Blockbech..."
+        echo "Installing Blockbech..."
         apt install blockbench
     }
 
