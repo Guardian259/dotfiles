@@ -19,12 +19,14 @@ The user is then prompted in stages:
 - Firefox Extension Preset
 - Youtube-dl
 - VSCodium
+- IntelliJ Idea
 ### Gamming Suite
 - Wine
 - Winetricks
 - Steam
 - DXVK
 - ProtonGE
+- Lutris
 
 
 ## Asks what files should be sourced and whether you want to install various server/DE applications by symlinking.
