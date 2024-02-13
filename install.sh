@@ -9,6 +9,8 @@
     apt install nala
     echo "Installing Neofetch..."
     apt install neofetch
+    echo "installing Htop..."
+    apt install htop
 
     for file in shell/*
     do
@@ -35,7 +37,7 @@
         echo "Installing GE-Proton..."
         # make temp working directory
         mkdir /tmp/proton-ge-custom
-        cd /tmp/proton-ge-custom
+        cd /tmp/proton-ge-custom || return
         # download  tarball
         curl -sLOJ "$(curl -s https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | grep browser_download_url | cut -d\" -f4 | grep .tar.gz)"
         # download checksum
@@ -54,39 +56,34 @@
     }
 
     function getDocker() {
-        if ask "Would you like to install the Docker Suite?"; then   
-            # Docker Engine's Instalation
-            # Add Docker's official GPG key:
-            apt update
-            apt install ca-certificates curl
-            install -m 0755 -d /etc/apt/keyrings
-            curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-            chmod a+r /etc/apt/keyrings/docker.asc
+        # Docker Engine's Instalation
+        # Add Docker's official GPG key:
+        apt update
+        apt install ca-certificates curl
+        install -m 0755 -d /etc/apt/keyrings
+        curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+        chmod a+r /etc/apt/keyrings/docker.asc
 
-            # Add the repository to Apt sources:
-            echo \
-            "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-            $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-            tee /etc/apt/sources.list.d/docker.list > /dev/null
-            apt update
-            apt install docker-compose
-            apt install docker-ce docker-ce-cli docker-compose-plugin
-        fi
+        # Add the repository to Apt sources:
+        echo \
+        "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+        $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+        tee /etc/apt/sources.list.d/docker.list > /dev/null
+        apt update
+        apt install docker-compose
+        apt install docker-ce docker-ce-cli docker-compose-plugin
     }
 
-    function getGamming() {
-        if ask "Would you like to install the gamming suite?"; then
-            echo "Installing wine & winetricks"
-            apt install wine
-            apt install winetricks
-            echo "Installing steam & dxvk compatibility layer"
-            apt install steam
-            apt install dxvk
-            getProtonGE
-            echo "Installing Lutris..."
-            apt install lutris
-        fi
-     
+    function getGaming() {
+        echo "Installing wine & winetricks"
+        apt install wine
+        apt install winetricks
+        echo "Installing steam & dxvk compatibility layer"
+        apt install steam
+        apt install dxvk
+        getProtonGE
+        echo "Installing Lutris..."
+        apt install lutris
     }
 
     function getVSCodium() {
@@ -98,13 +95,14 @@
         echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' \
         | tee /etc/apt/sources.list.d/vscodium.list
         #Installing vscodium
+        echo "Installing VSCodium..."
         apt update && apt install codium
     }
     function getCoding() {
         echo "Installing VS Code..."
         getVSCodium
         echo "Installing IntelliJ Idea"
-        source install/jetbrains-install.sh
+        install/jetbrains-install.sh
     }
 
     function getMediaEditing() {
@@ -128,7 +126,10 @@
     }
 
     function getDesigning() {
-        true
+        echo "Installing LibreCAD..."
+        apt install librecad
+        echo "Installing FreeCAD..."
+        apt install freecad
     }
 
     function getOffice() {
@@ -136,46 +137,54 @@
         apt install zotero
         echo "Installing Calibre..."
         apt install calibre
+    }
+
+    #Server Enviorment Suite
+    function serverEn() {
+        getDocker
+    }
+
+    #Desktop Enviorment Suite
+    function desktopEn() {
+        if ask "Would you like to install Yakuake console?"; then
+            apt install Yakuake
+        fi
+        #Installing Discord
+        echo "Installing Discord..."
+        wget -O discord.deb "https://discord.com/api/download/development?platform=linux&format=deb"
+        apt install ./discord.deb
         #Installing Thunderbird
         echo "Installing Thunderbird..."
+        #Installing Firefox Extensions
+        echo "Installing Firefox..."
+        apt install firefox
+        if ask "Would you like to install firefox extensions?"; then
+            for file in firfox/*
+            do
+                echo "Symlinking Firefox Extensions List..."
+                ln -s "$(realpath "policies.json")" /etc/firefox/
+            done
+        fi
         apt install thunderbird
-    }
-
-    function serverEn() {
-        #Server Enviorment Suite
-        if ask "Would you like to install Server Enviorment programs?"; then
-            getDocker
-            apt upgrade
-        fi
-    }
-
-    function desktopEn() {
-    #   Desktop Enviorment Suite
-        if ask "would you like to install Desktop Enviorment programs?"; then
-            if ask "Would you like to install Yakuake console?"; then
-                apt install Yakuake
-            fi
-            #Installing Discord
-            echo "Installing Discord..."
-            wget -O discord.deb "https://discord.com/api/download/development?platform=linux&format=deb"
-            apt install ./discord.deb
-            #Installing Firefox Extensions
-            echo "Installing Firefox..."
-            apt install firefox
-            if ask "Would you like to install firefox extensions?"; then
-                for file in firfox/*
-                do
-                    echo "Symlinking Firefox Extensions List..."
-                    ln -s "$(realpath "policies.json")" /etc/firefox/
-                done
-            fi
+        if ask "Do you want to install the programming suite?"; then
             getCoding
-            getGamming
-            getMediaEditing
-            getMultiMedia
-            getOffice
-            apt upgrade
         fi
+        if ask "Do you want to install the gaming suite?"; then
+            getGaming
+        fi
+        if ask "Do you want to install the media editing suite?"; then
+            getMediaEditing
+        fi
+        if ask "Do you want to install the multi media suite?"; then
+            getMultiMedia
+        fi
+        if ask "Do you want to install the office suite?"; then
+            getOffice
+        fi
+        if ask "Do you want to install the design suite?"; then
+            getDesigning
+        fi
+        
     }
 
     function installPrompt() {
@@ -203,6 +212,7 @@
             echo "Exiting Install..."
             exit 1;
         fi
+        apt upgrade
         echo "Install Complete!"
         exit 0;
     }
