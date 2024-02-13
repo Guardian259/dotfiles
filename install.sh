@@ -1,5 +1,10 @@
 #!/bin/bash
 
+
+    $SHELLPROMPTGET
+    $RANGERGET
+    $PACSTALLGET
+
     $EXTENSIONSGET
     $YAKUAKEGET
     $PROGRAMMINGGET
@@ -13,31 +18,72 @@
         read -p "$1 (Y/n): " response
         [ -z "$response" ] || [ "$response" = "y" ] || [ "$response" = "Y" ]
     }
+    #Base Install Function
     function commonProgams() {
+    
+    ENDFLAG=false
+        while [ "$ENDCOMMONFLAG" == false ] 
+        do
+            read -p "Please Indicate which modules to include in your base install
+            Then press 4 to install:
+
+            [0] ALL
+
+            [1] Custom Shell Prompt w/ Repo Branch Embed
+            [2] Ranger CLI file manager
+            [3] Pacstall - The AUR for Ubuntu
+
+            [4] Exit Prompt
+            " COMMONFLAG
+            case "${COMMONFLAG}" in
+                0 ) FLAG=All Suites; ALLCOMMONGET=true ENDCOMMONFLAG=true continue;;
+                1 ) FLAG=Yakuake Console; SHELLPROMPTGET=true continue;;
+                2 ) FLAG=Firefox Extensions; RANGERGET=true continue;;
+                3 ) FLAG=Programming Suite; PACSTALLGET=true continue;;
+                4 ) FLAG=Exit; ENDFLAG=true continue;
+            esac
+            #Feedback to the user
+            if [ "$SHELLPROMPTGET" == true ] || [ "$ALLCOMMONGET" == true ]; then
+                echo "The Custom Shell Prompt w/ Repo Branch Embed will be Installed"
+            fi
+            if [ "$RANGERGET" == true ] || [ "$ALLCOMMONGET" == true ]; then
+                echo "Ranger CLI file manager will be Installed"
+            fi
+            if [ "$PACSTALLGET" == true ] || [ "$ALLCOMMONGET" == true ]; then
+                echo "Pacstall - The AUR for Ubuntu will be Installed"
+            fi
+        done
+
     echo "Installing Nala..."
     apt install nala
     echo "Installing Neofetch..."
     apt install neofetch
     echo "installing Htop..."
-    apt install htop
+    apt install htop   
 
     for file in shell/*
     do
         fullpath=$(realpath "$file")
-        if ask "Source ${file}?"; then
+        #Appending Nala onto bashrc
+        if [ "$file" = shell/nala.sh ]; then
             echo "Appending ${file} into ~/.bashrc..."
             echo "source $fullpath" >> ~/.bashrc
-            if [ "$file" = shell/nala.sh ]; then
-                echo "Appending ${file} into /root/.bashrc..."
-                echo "source $fullpath" >> /etc/bash.bashrc
-            fi
+            echo "Appending ${file} into /root/.bashrc..."
+            echo "source $fullpath" >> /etc/bash.bashrc
+        fi
+        #
+        if [ "$file" != shell/nala.sh ] && [ "$SHELLPROMPTGET" == true ]; then
+            echo "Appending ${file} into ~/.bashrc..."
+            echo "source $fullpath" >> ~/.bashrc
         fi
     done
-    if ask "Would you like to install Ranger CLI file manager?"; then
+    if [ "$RANGERGET" == true ]; then
+        echo "Installing Ranger..."
         apt install ranger
     fi
 
-    if ask "Would you like to install Pacstall - The AUR for Ubuntu?"; then
+    if [ "$PACSTALLGET" == true ]; then
+        echo "Installing PacStall..."
         bash -c "$(curl -fsSL https://pacstall.dev/q/install)"
     fi
     }
@@ -190,8 +236,27 @@
                 8 ) FLAG=Design Suite; DESIGNGET=true continue;;
                 9 ) FLAG=Exit; ENDFLAG=true continue;
             esac
-            if $FLAG != 8; then
-                echo "$FLAG will be Installed"
+            #Feedback to the user
+            if [ "$YAKUAKEGET" == true ] || [ "$ALLGET" == true ]; then
+                echo "The Yakuake Console will be Installed"
+            fi
+            if [ "$PROGRAMMINGGET" == true ] || [ "$ALLGET" == true ]; then
+                echo "The Programming Suite will be Installed"
+            fi
+            if [ "$GAMMINGGET" == true ] || [ "$ALLGET" == true ]; then
+                echo "The Gaming Suite will be Installed"
+            fi
+            if [ "$MEDIAEDITGET" == true ] || [ "$ALLGET" == true ]; then
+                echo "The Media Editing Suite will be Installed"
+            fi
+            if [ "$MULTIMEDIAGET" == true ] || [ "$ALLGET" == true ]; then
+                echo "The Multi-Media Suite will be Installed"
+            fi
+            if [ "$OFFICEGET" == true ] || [ "$ALLGET" == true ]; then
+                echo "The Office Suite will be Installed"
+            fi
+            if [ "$DESIGNGET" == true ] || [ "$ALLGET" == true ]; then
+                echo "The Design Suite will be Installed"
             fi
         done
 
