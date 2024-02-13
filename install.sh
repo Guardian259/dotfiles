@@ -1,5 +1,14 @@
 #!/bin/bash
 
+    $EXTENSIONSGET
+    $YAKUAKEGET
+    $PROGRAMMINGGET
+    $GAMMINGGET
+    $MEDIAEDITGET
+    $MULTIMEDIAGET
+    $OFFICEGET
+    $DESIGNGET
+
     function ask() {
         read -p "$1 (Y/n): " response
         [ -z "$response" ] || [ "$response" = "y" ] || [ "$response" = "Y" ]
@@ -130,6 +139,8 @@
         apt install librecad
         echo "Installing FreeCAD..."
         apt install freecad
+        echo "Installing Blender..."
+        apt install blender
     }
 
     function getOffice() {
@@ -146,7 +157,44 @@
 
     #Desktop Enviorment Suite
     function desktopEn() {
-        if ask "Would you like to install Yakuake console?"; then
+        ENDFLAG=false
+        while [ "$ENDFLAG" == false ] 
+        do
+            read -p "Please Indicate which module suites' to include in your install
+            Then press 9 to install:
+            
+            [0] ALL
+
+            [1] Yakuake Consol
+            [2] Firefox Extensions
+            [3] Programming Suite
+            [4] Gaming Suite
+            [5] Media Editing Suite
+            [6] Multi-Media Suite
+            [7] Office Suite
+            [8] Design Suite
+
+            [9] Exit Prompt
+            " FLAG
+            case "${FLAG}" in
+                0 ) FLAG=All Suites; ALLGET=true ENDFLAG=true continue;;
+                1 ) FLAG=Yakuake Console; YAKUAKEGET=true continue;;
+                2 ) FLAG=Firefox Extensions; EXTENSIONSGET=true continue;;
+                3 ) FLAG=Programming Suite; PROGRAMMINGGET=true continue;;
+                4 ) FLAG=Gamming Suite; GAMMINGGET=true continue;;
+                5 ) FLAG=Media Editing Suite; MEDIAEDITGET=true continue;;
+                6 ) FLAG=Multi Media Suite; MULTIMEDIAGET=true continue;;
+                7 ) FLAG=Office Suite; OFFICEGET=true continue;;
+                8 ) FLAG=Design Suite; DESIGNGET=true continue;;
+                9 ) FLAG=Exit; ENDFLAG=true continue;
+            esac
+            if $FLAG != 8; then
+                echo "$FLAG will be Installed"
+            fi
+        done
+
+        if [ "$YAKUAKEGET" == true ] || [ "$ALLGET" == true ]; then
+            echo "Installing Yakuake Console"
             apt install Yakuake
         fi
         #Installing Discord
@@ -158,30 +206,30 @@
         #Installing Firefox Extensions
         echo "Installing Firefox..."
         apt install firefox
-        if ask "Would you like to install firefox extensions?"; then
+        if [ "$EXTENSIONSGET" == true ] || [ "$ALLGET" == true ]; then
             for file in firfox/*
             do
-                echo "Symlinking Firefox Extensions List..."
+                echo "Symlinking Firefox Extensions List into /etc/firefox/ ..."
                 ln -s "$(realpath "policies.json")" /etc/firefox/
             done
         fi
         apt install thunderbird
-        if ask "Do you want to install the programming suite?"; then
+        if [ "$PROGRAMMINGGET" == true ] || [ "$ALLGET" == true ]; then
             getCoding
         fi
-        if ask "Do you want to install the gaming suite?"; then
+        if [ "$GAMMINGGET" == true ] || [ "$ALLGET" == true ]; then
             getGaming
         fi
-        if ask "Do you want to install the media editing suite?"; then
+        if [ "$MEDIAEDITGET" == true ] || [ "$ALLGET" == true ]; then
             getMediaEditing
         fi
-        if ask "Do you want to install the multi media suite?"; then
+        if [ "$MULTIMEDIAGET" == true ] || [ "$ALLGET" == true ]; then
             getMultiMedia
         fi
-        if ask "Do you want to install the office suite?"; then
+        if [ "$OFFICEGET" == true ] || [ "$ALLGET" == true ]; then
             getOffice
         fi
-        if ask "Do you want to install the design suite?"; then
+        if [ "$DESIGNGET" == true ] || [ "$ALLGET" == true ]; then
             getDesigning
         fi
         

@@ -2,7 +2,7 @@
 
 ## Setup new Ubuntu machines with just one command.
 
-##### Nala is installed by default, along with its requisites aliases. The user is then prompted in stages:
+##### Nala is installed by default, along with its requisites aliases
 
 ## Common Suite
 -----
@@ -51,8 +51,9 @@
 ### **Design Suite**
 - [LibreCAD](https://github.com/LibreCAD/LibreCAD) - 2D Parametric CAD Software
 - [FreeCAD](https://www.freecad.org/index.php) - 3D Parametric CAD Software
+- [Blender](https://www.blender.org/) - 3D Computer Graphics software
 
-## Asks what files should be sourced and whether you want to install various server/DE applications by symlinking.
+## Copy the commands below and run them in your terminal, then follow the prompts provided, and thats it.
 ```sh
     git clone https://git.salmans.dev/Guardian/dotfiles.git .dotfiles
     cd .dotfiles
