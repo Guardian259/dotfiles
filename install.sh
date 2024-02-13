@@ -97,6 +97,7 @@
         echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' \
         | tee /etc/apt/sources.list.d/vscodium.list
         #Installing vscodium
+        echo "Installing VS Code"
         apt update && apt install codium
     }
     function getCoding() {
@@ -104,6 +105,26 @@
         getVSCodium
         echo "Installing IntelliJ Idea"
         source install/jetbrains-install.sh
+    }
+
+    function getMediaEditing() {
+        echo "Installing Inkscape"
+        apt install inkscape
+        echo "Installing Handbrake"
+        apt install handbrake
+        echo "Installing GIMP..."
+        apt install gimp
+        echo "Installing Krita..."
+        apt install krita
+    }
+
+    function getDesigning() {
+
+    }
+
+    function getOffice() {
+        echo "Installing Zotero..."
+        apt install zotero
     }
 
     ####################################
@@ -135,10 +156,15 @@
         if ask "Would you like to install Yakuake console?"; then
             apt install Yakuake
         fi
+        #Installing Thunderbird
+        echo "Installing Thunderbird..."
+        apt install thunderbird
         #Installing Discord
+        echo "Installing Discord..."
         wget -O discord.deb "https://discord.com/api/download/development?platform=linux&format=deb"
         apt install ./discord.deb
         #Installing Firefox Extensions
+        echo "Installing Firefox Extensions..."
         apt install firefox
         for file in firfox/*
             if ask "Would you like to install firefox extensions?"; then
@@ -149,6 +175,9 @@
         getGamming
         #Installing youtube-dl
         add-apt-repository ppa:tomtomtom/yt-dlp
+        echo "Installing yt-dlp..."
         apt update && apt install yt-dlp
+        echo "Installing vlc..."
+        apt install vlc
         apt upgrade
     fi
