@@ -336,13 +336,15 @@
     ####### Install Starts Here ########
     ####################################
     # We need root to install
-        if [ "$(id -u)" != "0" ]; then
-            if ask "root is required to preform install, allow root elevation?"; then
-                echo "Elevating to root..."
-                exec sudo "$0" "$@"
-            else 
-                echo "sudo privileges were not given exiting..."
-                exit 1
-            fi
-            prompt
+    if [ "$(id -u)" != "0" ]; then
+        if ask "root is required to preform install, allow root elevation?"; then
+            echo "Elevating to root..."
+            exec sudo "$0" "$@"
+        else 
+            echo "sudo privileges were not given exiting..."
+            exit 1
         fi
+        prompt
+    else
+        prompt
+    fi
