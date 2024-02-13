@@ -9,6 +9,7 @@ The user is then prompted in stages:
 - Custom Shell Prompt W/ Repo Branch Embed
 - Ranger CLI File Manager
 - Pacstall - AUR for Ubuntu
+- Neofetch System Information Shell Tool
 ## Server Sided Suite
 - Docker
 - Docker-Compose
@@ -16,13 +17,15 @@ The user is then prompted in stages:
 - Yakuake Terminal
 - Discord Development
 - Firefox Extension Preset
+- Youtube-dl
+- VSCodium
+### Gamming Suite
 - Wine
 - Winetricks
 - Steam
 - DXVK
 - ProtonGE
-- Youtube-dl
-- VSCodium
+
 
 ## Asks what files should be sourced and whether you want to install various server/DE applications by symlinking.
 
