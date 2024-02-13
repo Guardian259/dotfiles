@@ -83,6 +83,7 @@
             apt install steam
             apt install dxvk
             getProtonGE
+            echo "Installing Lutris..."
             apt install lutris
         fi
      
@@ -97,7 +98,6 @@
         echo 'deb [ signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg ] https://download.vscodium.com/debs vscodium main' \
         | tee /etc/apt/sources.list.d/vscodium.list
         #Installing vscodium
-        echo "Installing VS Code"
         apt update && apt install codium
     }
     function getCoding() {
