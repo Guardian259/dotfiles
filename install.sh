@@ -7,6 +7,7 @@
     function commonProgams() {
     echo "Installing Nala..."
     apt install nala
+    apt install neofetch
 
     for file in shell/*
     do
@@ -69,6 +70,16 @@
         apt install docker-ce docker-ce-cli docker-compose-plugin
     }
 
+    function getGamming() {
+        #Installing wine & winetricks
+        apt install wine
+        apt install winetricks
+        #Installing steam & dxvk
+        apt install steam
+        apt install dxvk
+        getProtonGE
+    }
+
     commonProgams
 
     if ask "Would you like to install Server Enviorment programs?"; then
@@ -92,13 +103,9 @@
                 ln -s "$(realpath "policies.json")" /etc/firefox/
             fi
         done
-        #Installing wine & winetricks
-        apt install wine
-        apt install winetricks
-        #Installing steam & dxvk
-        apt install steam
-        apt install dxvk
-        getProtonGE
+        if ask "Would you like to install the gamming suite?"; then
+            getGamming
+        fi
         #Installing youtube-dl
         add-apt-repository ppa:tomtomtom/yt-dlp
         apt update && apt install yt-dlp
