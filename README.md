@@ -39,10 +39,12 @@
 - [Handbrake](https://handbrake.fr/) - Video Transcoder
 - [Gimp](https://www.gimp.org/) - Image Retouching & Editing Tool
 - [Krita](https://krita.org/en/) - Digital Illustration & Animation Tool
+- [Blockbech](https://www.blockbench.net/) - Low-Poly Modeling & Animation Software
 ### **Multi-Media Suite**
 - [Youtube-dl](https://github.com/yt-dlp/yt-dlp) - Youtube Downloader W/ Sponsor Block Integration
 - [vlc](https://www.videolan.org/vlc/) - Cross-Platform Media Player
 - [Jellyfin](https://github.com/jellyfin/jellyfin-media-player) - Personal Media Player
+- [Sonixd](https://github.com/jeffvli/sonixd) - Subsonic & Jellyfin Compatible Media Player
 ### **Office Suite**
 - [Zotero](https://www.zotero.org/) - Personal Research Assistant
 - [Calibre](https://calibre-ebook.com/) - E-book Library Manager

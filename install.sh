@@ -23,11 +23,11 @@
 
     for file in shell/*
     do
-        fullpath=$(realpath $file)
+        fullpath=$(realpath "$file")
         if ask "Source ${file}?"; then
             echo "Appending ${file} into ~/.bashrc..."
             echo "source $fullpath" >> ~/.bashrc
-            if [ $file = shell/nala.sh ]; then
+            if [ "$file" = shell/nala.sh ]; then
                 echo "Appending ${file} into /root/.bashrc..."
                 echo "source $fullpath" >> /etc/bash.bashrc
             fi
@@ -123,6 +123,8 @@
         apt install gimp
         echo "Installing Krita..."
         apt install krita
+                echo "Installing Blockbech..."
+        apt install blockbench
     }
 
     function getMultiMedia() {
@@ -162,7 +164,7 @@
         do
             read -p "Please Indicate which module suites' to include in your install
             Then press 9 to install:
-            
+
             [0] ALL
 
             [1] Yakuake Consol
