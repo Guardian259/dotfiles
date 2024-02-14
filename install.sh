@@ -145,7 +145,9 @@
         getProtonGE
         echo "Installing Lutris..."
         apt install lutris
-    }
+        echo "Installing Minecraft..."
+        wget -qO Minecraft.deb https://launcher.mojang.com/download/Minecraft.deb
+        apt install ./Minecraft.deb
 
     function getVSCodium() {
         #Add VSCodium GPG key:
@@ -272,7 +274,7 @@
         fi
         #Installing Discord
         echo "Installing Discord..."
-        wget -O discord.deb "https://discord.com/api/download/development?platform=linux&format=deb"
+        wget -qO discord.deb "https://discord.com/api/download/development?platform=linux&format=deb"
         apt install ./discord.deb
         #Installing Thunderbird
         echo "Installing Thunderbird..."

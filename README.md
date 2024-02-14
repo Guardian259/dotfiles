@@ -32,7 +32,8 @@
 - [DXVK](https://github.com/doitsujin/dxvk) - Direct X over Vulkan Compatibility Layer
 - [ProtonGE](https://github.com/GloriousEggroll/proton-ge-custom) - Glorious Eggroll's Custom Implementation of Proton
 - [Lutris](https://lutris.net/) - Gaming & Emulator Platform
-- [Bottles](https://usebottles.com/) - Emulator For Windows Software
+- [Bottles](https://usebottles.com/) - Emulator For Windows Software (TBA)
+- [Minecraft](https://www.minecraft.net/en-us) - Minecraft Launcher
 
 ### **Media Editing Suite**
 - [Inkscape](https://inkscape.org/) - Vector Graphics Editor
