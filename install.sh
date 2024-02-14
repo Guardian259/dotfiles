@@ -148,6 +148,7 @@
         echo "Installing Minecraft..."
         wget -qO Minecraft.deb https://launcher.mojang.com/download/Minecraft.deb
         apt install ./Minecraft.deb
+    }
 
     function getVSCodium() {
         #Add VSCodium GPG key:
