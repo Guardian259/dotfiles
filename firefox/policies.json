@@ -1,5 +1,21 @@
 {
   "policies": {
+    "Bookmarks": [
+      {
+        "Title": "ProtonDB",
+        "URL": "https://www.protondb.com",
+        "Favicon": "https://www.protondb.com/favicon.ico",
+        "Placement": "toolbar",
+        "Folder": "Linux-Gaming"
+      },
+      {
+        "Title": "areweanticheatyet",
+        "URL": "https://areweanticheatyet.com/",
+        "Favicon": "hhttps://areweanticheatyet.com/favicon.ico",
+        "Placement": "toolbar",
+        "Folder": "Linux-Gaming"
+      }
+    ],
     "ExtensionSettings": {
       "uBlock0@raymondhill.net": {
         "installation_mode": "normal_installed",
