@@ -33,7 +33,7 @@
 
             [4] Exit Prompt
             " COMMONFLAG
-            case "${COMMONFLAG}" in
+            case "$COMMONFLAG" in
                 0 ) COMMONFLAG=All Suites; ALLCOMMONGET=true ENDCOMMONFLAG=true continue;;
                 1 ) COMMONFLAG=Yakuake Console; SHELLPROMPTGET=true continue;;
                 2 ) COMMONFLAG=Firefox Extensions; RANGERGET=true continue;;
@@ -233,7 +233,7 @@
 
             [9] Exit Prompt
             " FLAG
-            case "${FLAG}" in
+            case "$FLAG" in
                 0 ) FLAG=All Suites; ALLGET=true ENDFLAG=true continue;;
                 1 ) FLAG=Yakuake Console; YAKUAKEGET=true continue;;
                 2 ) FLAG=Firefox Extensions; EXTENSIONSGET=true continue;;
@@ -320,7 +320,7 @@
         [4] Exit Install   
         >" ENVIORMENT
 
-        if $ENVIORMENT != 4; then
+        if "$ENVIORMENT" != 4; then
             if ask "You have chosen $ENVIORMENT are you sure?"; then
                 echo "Installing $ENVIORMENT Enviorment..."
                 install/common-install.sh

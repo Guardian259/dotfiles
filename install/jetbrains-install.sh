@@ -3,7 +3,7 @@
 echo "Installing IntelliJ Idea..."
 
 # Prepend base URL for download
-URL="https://data.services.jetbrains.com/products/download?platform=linux&code=IIU"
+URL="https://data.services.jetbrains.com/products/download?platform=linux&code=IIC"
 
 # Get location header for file URL
 HEADERS=$(wget -qS --max-redirect 0 --spider "$URL" 2>&1)
@@ -57,8 +57,8 @@ echo "Adding permissions to $INSTALL_DIR"
 chmod -R +rwx ${INSTALL_DIR}
 
 # Enable to add desktop shortcut
-# DESK=/usr/share/applications/${IDE}.desktop
-# echo "[Desktop Entry]\nEncoding=UTF-8\nName=${IDE}\nComment=${IDE}\nExec=${BIN}/${IDE}.sh\nIcon=${BIN}/${IDE}.png\nTerminal=false\nStartupNotify=true\nType=Application" -e > ${DESK}
+DESK=/usr/share/applications/${IDE}.desktop
+echo "[Desktop Entry]\nEncoding=UTF-8\nName=${IDE}\nComment=${IDE}\nExec=${BIN}/${IDE}.sh\nIcon=${BIN}/${IDE}.png\nTerminal=false\nStartupNotify=true\nType=Application" -e > ${DESK}
 
 # Create symlink entry
 TARGET=${BIN}/idea.sh
