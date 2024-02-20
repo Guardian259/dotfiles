@@ -20,6 +20,7 @@
 - [Yakuake](https://github.com/KDE/yakuake) - Dropdown Terminal Inspired by Quake
 - [Discord](https://discord.com/) - Instant Messaging & VoIP Software
 - [Thunderbird](https://www.thunderbird.net/en-US/) - Email Client
+- [Nordvpn](https://nordvpn.com/) - VPN Client
 - Firefox Extension Preset
 
 ### **Programming Suite**

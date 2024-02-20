@@ -298,6 +298,11 @@
         #Installing Firefox Extensions
         echo "Installing Firefox..."
         nala install firefox
+        #Installing Nordvpn
+        if ask "Would you like to install Nordvpn? (Y/n)"; then
+            echo "Installing Nordvpn..."
+            nala install nordvpn
+        fi
         if [ "$EXTENSIONSGET" == true ] || [ "$ALLGET" == true ]; then
             for file in firfox/*
             do
