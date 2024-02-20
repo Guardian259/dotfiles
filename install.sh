@@ -61,6 +61,9 @@
 
         echo "Installing Nala..."
         apt install -y nala
+        echo "Fetching Mirrors..."
+        nala fetch
+        nala update
         echo "Installing Neofetch..."
         nala install -y neofetch
         echo "installing Htop..."
@@ -393,7 +396,7 @@
             echo "Exiting Install..."
             exit 1;
         fi
-        apt upgrade
+        nala -y upgrade
         echo "Install Complete!"
         exit 0;
     }
