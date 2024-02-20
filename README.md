@@ -25,6 +25,8 @@
 ### **Programming Suite**
 - [VSCodium](https://github.com/VSCodium/vscodium) - Open Source Release of Visual Studio Code
 - [IntelliJ Idea](https://www.jetbrains.com/idea/) - Java & Kotlin IDE
+- [Github Desktop](https://github.com/muroko/github-desktop-linux) - Open-Source Electron-Based GitHub App
+- [Adoptium](https://adoptium.net/) - Prebuilt OpenJDK
 ### **Gaming Suite**
 - [Wine](https://www.winehq.org/) - Windows API Compatibility Layer
 - [Winetricks](https://github.com/Winetricks/winetricks) - Wine Optimizations & Improvements
@@ -47,9 +49,9 @@
 - [Jellyfin](https://github.com/jellyfin/jellyfin-media-player) - Personal Media Player
 - [Sonixd](https://github.com/jeffvli/sonixd) - Subsonic & Jellyfin Compatible Media Player
 ### **Office Suite**
-- [Zotero](https://www.zotero.org/) - Personal Research Assistant
+- [Zotero](https://www.zotero.org/) - Personal Research Assistant (TBA)
 - [Calibre](https://calibre-ebook.com/) - E-book Library Manager
-- [yEd](https://www.yworks.com/products/yed) - Graph & Flowcharting Tool
+- [yEd](https://www.yworks.com/products/yed) - Graph & Flowcharting Tool (TBA)
 
 ### **Design Suite**
 - [LibreCAD](https://github.com/LibreCAD/LibreCAD) - 2D Parametric CAD Software

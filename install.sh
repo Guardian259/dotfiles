@@ -167,6 +167,20 @@
         getVSCodium
         echo "Installing IntelliJ Idea"
         install/jetbrains-install.sh
+        #Adding Github-Desktop-Linux Repo
+        wget -qO - https://apt.packages.shiftkey.dev/gpg.key | gpg --dearmor | sudo tee /usr/share/keyrings/shiftkey-packages.gpg > /dev/null
+        sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/shiftkey-packages.gpg] https://apt.packages.shiftkey.dev/ubuntu/ any main" > /etc/apt/sources.list.d/shiftkey-packages.list'
+        #Installing Github Desktop Linux...
+        echo "Installing Github Desktop..."
+        apt update
+        apt install github-desktop
+        #Installing Adoptium JDK...
+        echo "Installing Adoptium JDK..."
+        apt install -y wget apt-transport-https gpg
+        wget -qO - https://packages.adoptium.net/artifactory/api/gpg/key/public | gpg --dearmor | tee /etc/apt/trusted.gpg.d/adoptium.gpg > /dev/null
+        echo "deb https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | tee /etc/apt/sources.list.d/adoptium.list
+        apt update
+        apt install temurin-17-jdk
     }
 
     function getMediaEditing() {
