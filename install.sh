@@ -31,15 +31,18 @@
             [2] Ranger CLI file manager
             [3] Pacstall - The AUR for Ubuntu
 
-            [4] Exit Prompt
+            [4] Install Modules
+            [5] Exit Prompt
             " COMMONFLAG
             case "${COMMONFLAG}" in
-                0 ) COMMONFLAG=All Suites; ALLCOMMONGET=true; ENDCOMMONFLAG=true; continue;;
-                1 ) COMMONFLAG=Yakuake Console; SHELLPROMPTGET=true; continue;;
-                2 ) COMMONFLAG=Firefox Extensions; RANGERGET=true; continue;;
-                3 ) COMMONFLAG=Programming Suite; PACSTALLGET=true; continue;;
-                4 ) COMMONFLAG=Exit; ENDCOMMONFLAG=true; continue;
+                0 ) COMMONFLAG=All; ALLCOMMONGET=true; ENDCOMMONFLAG=true; ;;
+                1 ) COMMONFLAG=Yakuake; SHELLPROMPTGET=true; ;;
+                2 ) COMMONFLAG=Firefox; RANGERGET=true; ;;
+                3 ) COMMONFLAG=Programming; PACSTALLGET=true; ;;
+                4 ) COMMONFLAG=Install; ENDCOMMONFLAG=true; continue;;
+                5 ) COMMONFLAG=Exit; return;
             esac
+
             #Feedback to the user
             if [ "$SHELLPROMPTGET" == true ] || [ "$ALLCOMMONGET" == true ]; then
                 echo "The Custom Shell Prompt w/ Repo Branch Embed will be Installed"
@@ -49,6 +52,10 @@
             fi
             if [ "$PACSTALLGET" == true ] || [ "$ALLCOMMONGET" == true ]; then
                 echo "Pacstall - The AUR for Ubuntu will be Installed"
+            fi
+            if [ "$SHELLPROMPTGET" == true ] && [ "$RANGERGET" == true ] && [ "$PACSTALLGET" == true ]; then
+                echo "All Common Modules will be Installed"
+                ENDCOMMONFLAG=true
             fi
         done
 
@@ -77,12 +84,12 @@
         done
         if [ "$RANGERGET" == true ]; then
             echo "Installing Ranger..."
-        #    apt install ranger
+            apt install ranger
         fi
 
         if [ "$PACSTALLGET" == true ]; then
             echo "Installing PacStall..."
-        #    bash -c "$(curl -fsSL https://pacstall.dev/q/install)"
+            bash -c "$(curl -fsSL https://pacstall.dev/q/install)"
         fi
     }
 
@@ -246,23 +253,28 @@
             [7] Office Suite
             [8] Design Suite
 
-            [9] Exit Prompt
+            [9] Install Modules
+            [x] Exit Prompt
             " FLAG
             case "${FLAG}" in
-                0 ) FLAG=All Suites; ALLGET=true; ENDFLAG=true; continue;;
-                1 ) FLAG=Yakuake Console; YAKUAKEGET=true; continue;;
-                2 ) FLAG=Firefox Extensions; EXTENSIONSGET=true; continue;;
-                3 ) FLAG=Programming Suite; PROGRAMMINGGET=true; continue;;
-                4 ) FLAG=Gamming Suite; GAMMINGGET=true; continue;;
-                5 ) FLAG=Media Editing Suite; MEDIAEDITGET=true; continue;;
-                6 ) FLAG=Multi Media Suite; MULTIMEDIAGET=true; continue;;
-                7 ) FLAG=Office Suite; OFFICEGET=true; continue;;
-                8 ) FLAG=Design Suite; DESIGNGET=true; continue;;
-                9 ) FLAG=Exit; ENDFLAG=true; continue;;
+                0 ) FLAG=All; ALLGET=true; ENDFLAG=true; ;;
+                1 ) FLAG=Yakuake; YAKUAKEGET=true; ;;
+                2 ) FLAG=Firefox; EXTENSIONSGET=true; ;;
+                3 ) FLAG=Programming; PROGRAMMINGGET=true; ;;
+                4 ) FLAG=Gamming; GAMMINGGET=true; ;;
+                5 ) FLAG=Media Editing; MEDIAEDITGET=true; ;;
+                6 ) FLAG=Multi Media; MULTIMEDIAGET=true; ;;
+                7 ) FLAG=Office; OFFICEGET=true; ;;
+                8 ) FLAG=Design; DESIGNGET=true; ;;
+                9 ) FLAG=Install; ENDFLAG=true; continue;;
+                x ) FLAG=Exit; return;
             esac
             #Feedback to the user
             if [ "$YAKUAKEGET" == true ] || [ "$ALLGET" == true ]; then
                 echo "The Yakuake Console will be Installed"
+            fi
+            if [ "$EXTENSIONSGET" == true ] || [ "$ALLGET" == true ]; then
+                echo "Firefox Extensions will be Installed"
             fi
             if [ "$PROGRAMMINGGET" == true ] || [ "$ALLGET" == true ]; then
                 echo "The Programming Suite will be Installed"
@@ -282,11 +294,15 @@
             if [ "$DESIGNGET" == true ] || [ "$ALLGET" == true ]; then
                 echo "The Design Suite will be Installed"
             fi
+            if [ "$DESIGNGET" == true ] && [ "$OFFICEGET" == true ] && [ "$MULTIMEDIAGET" == true ] && [ "$MEDIAEDITGET" == true ] && [ "$GAMMINGGET" == true ] && [ "$PROGRAMMINGGET" == true ] && [ "$EXTENSIONSGET" == true ] && [ "$YAKUAKEGET" == true ]; then
+                echo "All Desktop Modules Will be Installed"
+                ENDFLAG=true
+            fi
         done
 
         if [ "$YAKUAKEGET" == true ] || [ "$ALLGET" == true ]; then
             echo "Installing Yakuake Console"
-            nala install Yakuake
+            nala install yakuake
         fi
         #Installing Discord
         echo "Installing Discord..."
