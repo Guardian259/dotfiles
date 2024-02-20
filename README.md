@@ -47,7 +47,7 @@
 ### **Multi-Media Suite**
 - [Youtube-dl](https://github.com/yt-dlp/yt-dlp) - Youtube Downloader W/ Sponsor Block Integration
 - [vlc](https://www.videolan.org/vlc/) - Cross-Platform Media Player
-- [Jellyfin](https://github.com/jellyfin/jellyfin-media-player) - Personal Media Player (TBA)
+- [Jellyfin](https://github.com/jellyfin/jellyfin-media-player) - Personal Media Player
 - [Sonixd](https://github.com/jeffvli/sonixd) - Subsonic & Jellyfin Compatible Media Player (TBA)
 ### **Office Suite**
 - [Zotero](https://www.zotero.org/) - Personal Research Assistant (TBA)
