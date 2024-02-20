@@ -32,7 +32,7 @@
 - [Wine](https://www.winehq.org/) - Windows API Compatibility Layer
 - [Winetricks](https://github.com/Winetricks/winetricks) - Wine Optimizations & Improvements
 - [Steam](https://store.steampowered.com) - Game Distribution Platform
-- [DXVK](https://github.com/doitsujin/dxvk) - Direct X over Vulkan Compatibility Layer
+- [DXVK](https://github.com/doitsujin/dxvk) - Direct X over Vulkan Compatibility Layer (TBA)
 - [ProtonGE](https://github.com/GloriousEggroll/proton-ge-custom) - Glorious Eggroll's Custom Implementation of Proton
 - [Lutris](https://lutris.net/) - Gaming & Emulator Platform
 - [Bottles](https://usebottles.com/) - Emulator For Windows Software (TBA)

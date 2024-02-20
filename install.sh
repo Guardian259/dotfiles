@@ -62,8 +62,7 @@
         echo "Installing Nala..."
         apt install -y nala
         echo "Fetching Mirrors..."
-        nala fetch
-        nala update
+        nala fetch && nala update
         echo "Installing Neofetch..."
         nala install -y neofetch
         echo "installing Htop..."
@@ -150,14 +149,23 @@
         nala install -y wine
         nala install -y winetricks
         echo "Installing steam & dxvk compatibility layer"
-        nala install -y steam
-        nala install -y dxvk
+        wget "https://cdn.akamai.steamstatic.com/client/installer/steam.deb" -O steam_latest.deb
+        nala install -y ./steam_latest.deb 
+        rm steam_latest.deb
+        #dxvk_version=$(curl --head https://github.com/doitsujin/dxvk/releases/latest | tr -d '\r' | grep '^location' | sed 's/.*\/v//g')
+        #echo "Installing dxvk $dxvk_version..."
+        #wget "https://github.com/doitsujin/dxvk/releases/download/v$dxvk_version/dxvk-$dxvk_version.tar.gz" -O dxvk-"$dxvk_version".tar.gz
+        #export WINEPREFIX=/path/to/wineprefix
+        #cp x64/*.dll $WINEPREFIX/drive_c/windows/system32
+        #cp x32/*.dll $WINEPREFIX/drive_c/windows/syswow64
+        #winecfg
         getProtonGE
         echo "Installing Lutris..."
         nala install -y lutris
         echo "Installing Minecraft..."
         wget -qO Minecraft.deb https://launcher.mojang.com/download/Minecraft.deb
         nala install -y ./Minecraft.deb
+        rm Minecraft.deb
     }
 
     function getVSCodium() {
@@ -398,7 +406,7 @@
             echo "Exiting Install..."
             exit 1;
         fi
-        nala -y upgrade
+        nala upgrade -y
         echo "Install Complete!"
         exit 0;
     }
