@@ -53,11 +53,11 @@
         done
 
         echo "Installing Nala..."
-        #apt install nala
+        apt install nala
         echo "Installing Neofetch..."
-        #apt install neofetch
+        apt install neofetch
         echo "installing Htop..."
-        #apt install htop   
+        apt install htop   
 
         for file in shell/*
         do
@@ -77,7 +77,7 @@
         done
         if [ "$RANGERGET" == true ]; then
             echo "Installing Ranger..."
-            #apt install ranger
+            apt install ranger
         fi
 
         if [ "$PACSTALLGET" == true ]; then
@@ -93,8 +93,8 @@
     function getDocker() {
         # Docker Engine's Instalation
         # Add Docker's official GPG key:
-        #apt update
-        #apt install ca-certificates curl
+        apt update
+        apt install ca-certificates curl
         install -m 0755 -d /etc/apt/keyrings
         curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
         chmod a+r /etc/apt/keyrings/docker.asc
@@ -104,9 +104,9 @@
         "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
         $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
         tee /etc/apt/sources.list.d/docker.list > /dev/null
-        #apt update
-        #apt install docker-compose
-        #apt install docker-ce docker-ce-cli docker-compose-plugin
+        apt update
+        apt install docker-compose
+        apt install docker-ce docker-ce-cli docker-compose-plugin
     }
 
     ####################################
@@ -137,17 +137,17 @@
 
     function getGaming() {
         echo "Installing wine & winetricks"
-        #apt install wine
+        apt install wine
         apt install winetricks
         echo "Installing steam & dxvk compatibility layer"
-        #apt install steam
-        #apt install dxvk
+        apt install steam
+        apt install dxvk
         getProtonGE
         echo "Installing Lutris..."
-        #apt install lutris
+        apt install lutris
         echo "Installing Minecraft..."
         wget -qO Minecraft.deb https://launcher.mojang.com/download/Minecraft.deb
-        #apt install ./Minecraft.deb
+        apt install ./Minecraft.deb
     }
 
     function getVSCodium() {
@@ -160,7 +160,7 @@
         | tee /etc/apt/sources.list.d/vscodium.list
         #Installing vscodium
         echo "Installing VSCodium..."
-        #apt update && apt install codium
+        apt update && apt install codium
     }
     function getCoding() {
         echo "Installing VS Code..."
@@ -171,41 +171,41 @@
 
     function getMediaEditing() {
         echo "Installing Inkscape"
-        #apt install inkscape
+        apt install inkscape
         echo "Installing Handbrake"
-        #apt install handbrake
+        apt install handbrake
         echo "Installing GIMP..."
-        #apt install gimp
+        apt install gimp
         echo "Installing Krita..."
-        #apt install krita
+        apt install krita
         echo "Installing Blockbech..."
-        #wget -qO blockbench.deb https://github.com/JannisX11/blockbench/releases/download/v4.9.4/Blockbench_4.9.4.deb
-        #apt install ./blockbench.deb
+        wget -qO blockbench.deb https://github.com/JannisX11/blockbench/releases/download/v4.9.4/Blockbench_4.9.4.deb
+        apt install ./blockbench.deb
     }
 
     function getMultiMedia() {
         #Installing youtube-dl
-        #add-apt-repository ppa:tomtomtom/yt-dlp
+        add-apt-repository ppa:tomtomtom/yt-dlp
         echo "Installing yt-dlp..."
-        #apt update && apt install yt-dlp
+        apt update && apt install yt-dlp
         echo "Installing vlc..."
-        #apt install vlc
+        apt install vlc
     }
 
     function getDesigning() {
         echo "Installing LibreCAD..."
-        #apt install librecad
+        apt install librecad
         echo "Installing FreeCAD..."
-        #apt install freecad
+        apt install freecad
         echo "Installing Blender..."
-        #apt install blender
+        apt install blender
     }
 
     function getOffice() {
         #echo "Installing Zotero..."
         #apt install zotero
         echo "Installing Calibre..."
-        #apt install calibre
+        apt install calibre
     }
 
     #Server Enviorment Suite
@@ -276,13 +276,13 @@
         fi
         #Installing Discord
         echo "Installing Discord..."
-        #wget -qO discord.deb "https://discord.com/api/download/development?platform=linux&format=deb"
-        #apt install ./discord.deb
+        wget -qO discord.deb "https://discord.com/api/download/development?platform=linux&format=deb"
+        apt install ./discord.deb
         #Installing Thunderbird
         echo "Installing Thunderbird..."
         #Installing Firefox Extensions
         echo "Installing Firefox..."
-        #apt install firefox
+        apt install firefox
         if [ "$EXTENSIONSGET" == true ] || [ "$ALLGET" == true ]; then
             for file in firfox/*
             do
