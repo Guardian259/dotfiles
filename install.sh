@@ -313,8 +313,12 @@
                 7 ) FLAG=Office; OFFICEGET=true; ;;
                 8 ) FLAG=Design; DESIGNGET=true; ;;
                 9 ) FLAG=Install; ENDFLAG=true; continue;;
-                x ) FLAG=Exit; return;
+                x ) FLAG=Exit; EXITFLAG=true;
             esac
+            if [ "$EXITFLAG" == true ]; then
+            echo "Exiting Install..."
+            exit 1;
+            fi
         done
 
         if [ "$YAKUAKEGET" == true ] || [ "$ALLGET" == true ]; then
