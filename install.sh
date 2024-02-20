@@ -60,11 +60,11 @@
         done
 
         echo "Installing Nala..."
-        apt install nala
+        apt install -y nala
         echo "Installing Neofetch..."
-        nala install neofetch
+        nala install -y neofetch
         echo "installing Htop..."
-        nala install htop   
+        nala install -y htop   
 
         for file in shell/*
         do
@@ -84,7 +84,7 @@
         done
         if [ "$RANGERGET" == true ]; then
             echo "Installing Ranger..."
-            apt install ranger
+            apt install -y ranger
         fi
 
         if [ "$PACSTALLGET" == true ]; then
@@ -101,7 +101,7 @@
         # Docker Engine's Instalation
         # Add Docker's official GPG key:
         nala update
-        nala install ca-certificates curl
+        nala install -y ca-certificates curl
         install -m 0755 -d /etc/apt/keyrings
         curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
         chmod a+r /etc/apt/keyrings/docker.asc
@@ -112,8 +112,8 @@
         $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
         tee /etc/apt/sources.list.d/docker.list > /dev/null
         nala update
-        nala install docker-compose
-        nala install docker-ce docker-ce-cli docker-compose-plugin
+        nala install -y docker-compose
+        nala install -y docker-ce docker-ce-cli docker-compose-plugin
     }
 
     ####################################
@@ -144,17 +144,17 @@
 
     function getGaming() {
         echo "Installing wine & winetricks"
-        nala install wine
-        nala install winetricks
+        nala install -y wine
+        nala install -y winetricks
         echo "Installing steam & dxvk compatibility layer"
-        nala install steam
-        nala install dxvk
+        nala install -y steam
+        nala install -y dxvk
         getProtonGE
         echo "Installing Lutris..."
-        nala install lutris
+        nala install -y lutris
         echo "Installing Minecraft..."
         wget -qO Minecraft.deb https://launcher.mojang.com/download/Minecraft.deb
-        nala install ./Minecraft.deb
+        nala install -y ./Minecraft.deb
     }
 
     function getVSCodium() {
@@ -167,7 +167,7 @@
         | tee /etc/apt/sources.list.d/vscodium.list
         #Installing vscodium
         echo "Installing VSCodium..."
-        nala update && nala install codium
+        nala update && nala install -y codium
     }
     function getCoding() {
         echo "Installing VS Code..."
@@ -180,53 +180,53 @@
         #Installing Github Desktop Linux...
         echo "Installing Github Desktop..."
         nala update
-        nala install github-desktop
+        nala install -y github-desktop
         #Installing Adoptium JDK...
         echo "Installing Adoptium JDK..."
         nala install -y wget apt-transport-https gpg
         wget -qO - https://packages.adoptium.net/artifactory/api/gpg/key/public | gpg --dearmor | tee /etc/apt/trusted.gpg.d/adoptium.gpg > /dev/null
         echo "deb https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | tee /etc/apt/sources.list.d/adoptium.list
         nala update
-        nala install temurin-17-jdk
+        nala install -y temurin-17-jdk
     }
 
     function getMediaEditing() {
         echo "Installing Inkscape"
-        nala install inkscape
+        nala install -y inkscape
         echo "Installing Handbrake"
-        nala install handbrake
+        nala install -y handbrake
         echo "Installing GIMP..."
-        nala install gimp
+        nala install -y gimp
         echo "Installing Krita..."
-        nala install krita
+        nala install -y krita
         echo "Installing Blockbech..."
         wget -qO blockbench.deb https://github.com/JannisX11/blockbench/releases/download/v4.9.4/Blockbench_4.9.4.deb
-        nala install ./blockbench.deb
+        nala install -y ./blockbench.deb
     }
 
     function getMultiMedia() {
         #Installing youtube-dl
         add-apt-repository ppa:tomtomtom/yt-dlp
         echo "Installing yt-dlp..."
-        nala update && nala install yt-dlp
+        nala update && nala install -y yt-dlp
         echo "Installing vlc..."
-        nala install vlc
+        nala install -y vlc
     }
 
     function getDesigning() {
         echo "Installing LibreCAD..."
-        nala install librecad
+        nala install -y librecad
         echo "Installing FreeCAD..."
-        nala install freecad
+        nala install -y freecad
         echo "Installing Blender..."
-        nala install blender
+        nala install -y blender
     }
 
     function getOffice() {
         #echo "Installing Zotero..."
         #apt install zotero
         echo "Installing Calibre..."
-        nala install calibre
+        nala install -y calibre
     }
 
     #Server Enviorment Suite
@@ -302,22 +302,22 @@
 
         if [ "$YAKUAKEGET" == true ] || [ "$ALLGET" == true ]; then
             echo "Installing Yakuake Console"
-            nala install yakuake
+            nala install -y yakuake
         fi
         #Installing Discord
         echo "Installing Discord..."
         wget -qO discord.deb "https://discord.com/api/download/development?platform=linux&format=deb"
-        nala install ./discord.deb
+        nala install -y ./discord.deb
         #Installing Thunderbird
         echo "Installing Thunderbird..."
-        nala install thunderbird
+        nala install -y thunderbird
         #Installing Firefox Extensions
         echo "Installing Firefox..."
-        nala install firefox
+        nala install -y firefox
         #Installing Nordvpn
         if ask "Would you like to install Nordvpn? (Y/n)"; then
             echo "Installing Nordvpn..."
-            nala install nordvpn
+            sh <(wget -qO - https://downloads.nordcdn.com/apps/linux/install.sh)
         fi
         if [ "$EXTENSIONSGET" == true ] || [ "$ALLGET" == true ]; then
             for file in firfox/*
