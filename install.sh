@@ -33,12 +33,12 @@
 
             [4] Exit Prompt
             " COMMONFLAG
-            case "$COMMONFLAG" in
-                0 ) COMMONFLAG=All Suites; ALLCOMMONGET=true ENDCOMMONFLAG=true continue;;
-                1 ) COMMONFLAG=Yakuake Console; SHELLPROMPTGET=true continue;;
-                2 ) COMMONFLAG=Firefox Extensions; RANGERGET=true continue;;
-                3 ) COMMONFLAG=Programming Suite; PACSTALLGET=true continue;;
-                4 ) COMMONFLAG=Exit; ENDCOMMONFLAG=true continue;
+            case "${COMMONFLAG}" in
+                0 ) COMMONFLAG=All Suites; ALLCOMMONGET=true; ENDCOMMONFLAG=true; continue;;
+                1 ) COMMONFLAG=Yakuake Console; SHELLPROMPTGET=true; continue;;
+                2 ) COMMONFLAG=Firefox Extensions; RANGERGET=true; continue;;
+                3 ) COMMONFLAG=Programming Suite; PACSTALLGET=true; continue;;
+                4 ) COMMONFLAG=Exit; ENDCOMMONFLAG=true; continue;
             esac
             #Feedback to the user
             if [ "$SHELLPROMPTGET" == true ] || [ "$ALLCOMMONGET" == true ]; then
@@ -55,9 +55,9 @@
         echo "Installing Nala..."
         apt install nala
         echo "Installing Neofetch..."
-        apt install neofetch
+        nala install neofetch
         echo "installing Htop..."
-        apt install htop   
+        nala install htop   
 
         for file in shell/*
         do
@@ -69,7 +69,7 @@
                 echo "Appending ${file} into /root/.bashrc..."
                 echo "source $fullpath" >> /etc/bash.bashrc
             fi
-            #
+            #Appending Shell Prompt onto bashrc
             if [ "$file" != shell/nala.sh ] && [ "$SHELLPROMPTGET" == true ]; then
                 echo "Appending ${file} into ~/.bashrc..."
                 echo "source $fullpath" >> ~/.bashrc
@@ -77,12 +77,12 @@
         done
         if [ "$RANGERGET" == true ]; then
             echo "Installing Ranger..."
-            apt install ranger
+        #    apt install ranger
         fi
 
         if [ "$PACSTALLGET" == true ]; then
             echo "Installing PacStall..."
-            bash -c "$(curl -fsSL https://pacstall.dev/q/install)"
+        #    bash -c "$(curl -fsSL https://pacstall.dev/q/install)"
         fi
     }
 
@@ -93,8 +93,8 @@
     function getDocker() {
         # Docker Engine's Instalation
         # Add Docker's official GPG key:
-        apt update
-        apt install ca-certificates curl
+        nala update
+        nala install ca-certificates curl
         install -m 0755 -d /etc/apt/keyrings
         curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
         chmod a+r /etc/apt/keyrings/docker.asc
@@ -104,9 +104,9 @@
         "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
         $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
         tee /etc/apt/sources.list.d/docker.list > /dev/null
-        apt update
-        apt install docker-compose
-        apt install docker-ce docker-ce-cli docker-compose-plugin
+        nala update
+        nala install docker-compose
+        nala install docker-ce docker-ce-cli docker-compose-plugin
     }
 
     ####################################
@@ -137,17 +137,17 @@
 
     function getGaming() {
         echo "Installing wine & winetricks"
-        apt install wine
-        apt install winetricks
+        nala install wine
+        nala install winetricks
         echo "Installing steam & dxvk compatibility layer"
-        apt install steam
-        apt install dxvk
+        nala install steam
+        nala install dxvk
         getProtonGE
         echo "Installing Lutris..."
-        apt install lutris
+        nala install lutris
         echo "Installing Minecraft..."
         wget -qO Minecraft.deb https://launcher.mojang.com/download/Minecraft.deb
-        apt install ./Minecraft.deb
+        nala install ./Minecraft.deb
     }
 
     function getVSCodium() {
@@ -160,7 +160,7 @@
         | tee /etc/apt/sources.list.d/vscodium.list
         #Installing vscodium
         echo "Installing VSCodium..."
-        apt update && apt install codium
+        nala update && nala install codium
     }
     function getCoding() {
         echo "Installing VS Code..."
@@ -172,54 +172,54 @@
         sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/shiftkey-packages.gpg] https://apt.packages.shiftkey.dev/ubuntu/ any main" > /etc/apt/sources.list.d/shiftkey-packages.list'
         #Installing Github Desktop Linux...
         echo "Installing Github Desktop..."
-        apt update
-        apt install github-desktop
+        nala update
+        nala install github-desktop
         #Installing Adoptium JDK...
         echo "Installing Adoptium JDK..."
-        apt install -y wget apt-transport-https gpg
+        nala install -y wget apt-transport-https gpg
         wget -qO - https://packages.adoptium.net/artifactory/api/gpg/key/public | gpg --dearmor | tee /etc/apt/trusted.gpg.d/adoptium.gpg > /dev/null
         echo "deb https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | tee /etc/apt/sources.list.d/adoptium.list
-        apt update
-        apt install temurin-17-jdk
+        nala update
+        nala install temurin-17-jdk
     }
 
     function getMediaEditing() {
         echo "Installing Inkscape"
-        apt install inkscape
+        nala install inkscape
         echo "Installing Handbrake"
-        apt install handbrake
+        nala install handbrake
         echo "Installing GIMP..."
-        apt install gimp
+        nala install gimp
         echo "Installing Krita..."
-        apt install krita
+        nala install krita
         echo "Installing Blockbech..."
         wget -qO blockbench.deb https://github.com/JannisX11/blockbench/releases/download/v4.9.4/Blockbench_4.9.4.deb
-        apt install ./blockbench.deb
+        nala install ./blockbench.deb
     }
 
     function getMultiMedia() {
         #Installing youtube-dl
         add-apt-repository ppa:tomtomtom/yt-dlp
         echo "Installing yt-dlp..."
-        apt update && apt install yt-dlp
+        nala update && nala install yt-dlp
         echo "Installing vlc..."
-        apt install vlc
+        nala install vlc
     }
 
     function getDesigning() {
         echo "Installing LibreCAD..."
-        apt install librecad
+        nala install librecad
         echo "Installing FreeCAD..."
-        apt install freecad
+        nala install freecad
         echo "Installing Blender..."
-        apt install blender
+        nala install blender
     }
 
     function getOffice() {
         #echo "Installing Zotero..."
         #apt install zotero
         echo "Installing Calibre..."
-        apt install calibre
+        nala install calibre
     }
 
     #Server Enviorment Suite
@@ -248,17 +248,17 @@
 
             [9] Exit Prompt
             " FLAG
-            case "$FLAG" in
-                0 ) FLAG=All Suites; ALLGET=true ENDFLAG=true continue;;
-                1 ) FLAG=Yakuake Console; YAKUAKEGET=true continue;;
-                2 ) FLAG=Firefox Extensions; EXTENSIONSGET=true continue;;
-                3 ) FLAG=Programming Suite; PROGRAMMINGGET=true continue;;
-                4 ) FLAG=Gamming Suite; GAMMINGGET=true continue;;
-                5 ) FLAG=Media Editing Suite; MEDIAEDITGET=true continue;;
-                6 ) FLAG=Multi Media Suite; MULTIMEDIAGET=true continue;;
-                7 ) FLAG=Office Suite; OFFICEGET=true continue;;
-                8 ) FLAG=Design Suite; DESIGNGET=true continue;;
-                9 ) FLAG=Exit; ENDFLAG=true continue;
+            case "${FLAG}" in
+                0 ) FLAG=All Suites; ALLGET=true; ENDFLAG=true; continue;;
+                1 ) FLAG=Yakuake Console; YAKUAKEGET=true; continue;;
+                2 ) FLAG=Firefox Extensions; EXTENSIONSGET=true; continue;;
+                3 ) FLAG=Programming Suite; PROGRAMMINGGET=true; continue;;
+                4 ) FLAG=Gamming Suite; GAMMINGGET=true; continue;;
+                5 ) FLAG=Media Editing Suite; MEDIAEDITGET=true; continue;;
+                6 ) FLAG=Multi Media Suite; MULTIMEDIAGET=true; continue;;
+                7 ) FLAG=Office Suite; OFFICEGET=true; continue;;
+                8 ) FLAG=Design Suite; DESIGNGET=true; continue;;
+                9 ) FLAG=Exit; ENDFLAG=true; continue;;
             esac
             #Feedback to the user
             if [ "$YAKUAKEGET" == true ] || [ "$ALLGET" == true ]; then
@@ -286,17 +286,18 @@
 
         if [ "$YAKUAKEGET" == true ] || [ "$ALLGET" == true ]; then
             echo "Installing Yakuake Console"
-            apt install Yakuake
+            nala install Yakuake
         fi
         #Installing Discord
         echo "Installing Discord..."
         wget -qO discord.deb "https://discord.com/api/download/development?platform=linux&format=deb"
-        apt install ./discord.deb
+        nala install ./discord.deb
         #Installing Thunderbird
         echo "Installing Thunderbird..."
+        nala install thunderbird
         #Installing Firefox Extensions
         echo "Installing Firefox..."
-        apt install firefox
+        nala install firefox
         if [ "$EXTENSIONSGET" == true ] || [ "$ALLGET" == true ]; then
             for file in firfox/*
             do
@@ -304,7 +305,6 @@
                 ln -s "$(realpath "$file")" /etc/firefox/
             done
         fi    
-        apt install thunderbird
         if [ "$PROGRAMMINGGET" == true ] || [ "$ALLGET" == true ]; then
             getCoding
         fi
@@ -335,10 +335,10 @@
         [4] Exit Install   
         >" ENVIORMENT
 
-        if "$ENVIORMENT" != 4; then
+        if [ "$ENVIORMENT" != 4 ]; then
             if ask "You have chosen $ENVIORMENT are you sure?"; then
                 echo "Installing $ENVIORMENT Enviorment..."
-                install/common-install.sh
+                commonProgams
                 case "${ENVIORMENT}" in
                     1 ) ENVIORMENT=Server; serverEn return;;
                     2 ) ENVIORMENT=Desktop; desktopEn return;;
