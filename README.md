@@ -50,7 +50,7 @@
 - [Jellyfin](https://github.com/jellyfin/jellyfin-media-player) - Personal Media Player
 - [Sonixd](https://github.com/jeffvli/sonixd) - Subsonic & Jellyfin Compatible Media Player (TBA)
 ### **Office Suite**
-- [Zotero](https://www.zotero.org/) - Personal Research Assistant (TBA)
+- [Zotero](https://www.zotero.org/) - Personal Research Assistant
 - [Calibre](https://calibre-ebook.com/) - E-book Library Manager
 - [yEd](https://www.yworks.com/products/yed) - Graph & Flowcharting Tool (TBA)
 

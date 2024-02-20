@@ -242,8 +242,10 @@
     }
 
     function getOffice() {
-        #echo "Installing Zotero..."
-        #apt install zotero
+        echo "Installing Zotero..."
+        wget -qO zotero-install.sh https://raw.githubusercontent.com/retorquere/zotero-deb/master/install.sh | bash
+        nala update
+        nala install zotero 
         echo "Installing Calibre..."
         nala install -y calibre
     }
