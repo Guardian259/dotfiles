@@ -179,6 +179,7 @@
         echo "Installing Krita..."
         apt install krita
         echo "Installing Blockbech..."
+        wget -qO blockbench.deb https://github.com/JannisX11/blockbench/releases/download/v4.9.4/Blockbench_4.9.4.deb
         apt install blockbench
     }
 
@@ -201,8 +202,8 @@
     }
 
     function getOffice() {
-        echo "Installing Zotero..."
-        apt install zotero
+        #echo "Installing Zotero..."
+        #apt install zotero
         echo "Installing Calibre..."
         apt install calibre
     }
