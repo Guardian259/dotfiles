@@ -200,9 +200,11 @@
         nala install -y gimp
         echo "Installing Krita..."
         nala install -y krita
-        echo "Installing Blockbech..."
-        wget -qO blockbench.deb https://github.com/JannisX11/blockbench/releases/download/v4.9.4/Blockbench_4.9.4.deb
-        nala install -y ./blockbench.deb
+        blockbench_version=$(curl --head https://github.com/JannisX11/blockbench/releases/latest | tr -d '\r' | grep '^location' | sed 's/.*\/v//g')
+        echo "Installing Blockbech $blockbench_version..."
+        wget "https://github.com/JannisX11/blockbench/releases/download/v$blockbench_version/Blockbench_$blockbench_version.deb" -O blockbench-"$blockbench_version".deb
+        nala install -y ./blockbench-"$blockbench_version".deb
+        rm blockbench-"$blockbench_version".deb
     }
 
     function getMultiMedia() {
@@ -217,7 +219,7 @@
         jellyfin_version=$(curl --head https://github.com/jellyfin/jellyfin-media-player/releases/latest | tr -d '\r' | grep '^location' | sed 's/.*\/v//g')
         echo "Installing Jellyfin Mdeia Player $jellyfin_version..."
         wget "https://github.com/jellyfin/jellyfin-media-player/releases/download/v$jellyfin_version/jellyfin-media-player_$jellyfin_version-1_amd64-$(grep VERSION_CODENAME /etc/os-release | cut -d= -f2).deb" -O jellyfin-media-player-"$jellyfin_version".deb
-        apt install -y ./jellyfin-media-player-"$jellyfin_version".deb
+        nala install -y ./jellyfin-media-player-"$jellyfin_version".deb
         rm jellyfin-media-player-"$jellyfin_version".deb
         #Installing Sonixd
         #echo "Installing Sonixd Media Player..."
