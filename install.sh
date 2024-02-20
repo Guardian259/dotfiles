@@ -22,6 +22,21 @@
         ENDCOMMONFLAG=false
         while [ "$ENDCOMMONFLAG" == false ] 
         do
+            clear
+            #Feedback to the user
+            if [ "$SHELLPROMPTGET" == true ] || [ "$ALLCOMMONGET" == true ]; then
+                echo "The Custom Shell Prompt w/ Repo Branch Embed will be Installed"
+            fi
+            if [ "$RANGERGET" == true ] || [ "$ALLCOMMONGET" == true ]; then
+                echo "Ranger CLI file manager will be Installed"
+            fi
+            if [ "$PACSTALLGET" == true ] || [ "$ALLCOMMONGET" == true ]; then
+                echo "Pacstall - The AUR for Ubuntu will be Installed"
+            fi
+            if [ "$SHELLPROMPTGET" == true ] && [ "$RANGERGET" == true ] && [ "$PACSTALLGET" == true ]; then
+                echo "All Common Modules will be Installed"
+                ENDCOMMONFLAG=true
+            fi
             read -p "Please Indicate which modules to include in your base install
             Then press 4 to install:
 
@@ -42,21 +57,6 @@
                 4 ) COMMONFLAG=Install; ENDCOMMONFLAG=true; continue;;
                 5 ) COMMONFLAG=Exit; return;
             esac
-
-            #Feedback to the user
-            if [ "$SHELLPROMPTGET" == true ] || [ "$ALLCOMMONGET" == true ]; then
-                echo "The Custom Shell Prompt w/ Repo Branch Embed will be Installed"
-            fi
-            if [ "$RANGERGET" == true ] || [ "$ALLCOMMONGET" == true ]; then
-                echo "Ranger CLI file manager will be Installed"
-            fi
-            if [ "$PACSTALLGET" == true ] || [ "$ALLCOMMONGET" == true ]; then
-                echo "Pacstall - The AUR for Ubuntu will be Installed"
-            fi
-            if [ "$SHELLPROMPTGET" == true ] && [ "$RANGERGET" == true ] && [ "$PACSTALLGET" == true ]; then
-                echo "All Common Modules will be Installed"
-                ENDCOMMONFLAG=true
-            fi
         done
 
         echo "Installing Nala..."
@@ -255,6 +255,36 @@
         ENDFLAG=false
         while [ "$ENDFLAG" == false ] 
         do
+            clear
+            #Feedback to the user
+            if [ "$YAKUAKEGET" == true ] || [ "$ALLGET" == true ]; then
+                echo "The Yakuake Console will be Installed"
+            fi
+            if [ "$EXTENSIONSGET" == true ] || [ "$ALLGET" == true ]; then
+                echo "Firefox Extensions will be Installed"
+            fi
+            if [ "$PROGRAMMINGGET" == true ] || [ "$ALLGET" == true ]; then
+                echo "The Programming Suite will be Installed"
+            fi
+            if [ "$GAMMINGGET" == true ] || [ "$ALLGET" == true ]; then
+                echo "The Gaming Suite will be Installed"
+            fi
+            if [ "$MEDIAEDITGET" == true ] || [ "$ALLGET" == true ]; then
+                echo "The Media Editing Suite will be Installed"
+            fi
+            if [ "$MULTIMEDIAGET" == true ] || [ "$ALLGET" == true ]; then
+                echo "The Multi-Media Suite will be Installed"
+            fi
+            if [ "$OFFICEGET" == true ] || [ "$ALLGET" == true ]; then
+                echo "The Office Suite will be Installed"
+            fi
+            if [ "$DESIGNGET" == true ] || [ "$ALLGET" == true ]; then
+                echo "The Design Suite will be Installed"
+            fi
+            if [ "$DESIGNGET" == true ] && [ "$OFFICEGET" == true ] && [ "$MULTIMEDIAGET" == true ] && [ "$MEDIAEDITGET" == true ] && [ "$GAMMINGGET" == true ] && [ "$PROGRAMMINGGET" == true ] && [ "$EXTENSIONSGET" == true ] && [ "$YAKUAKEGET" == true ]; then
+                echo "All Desktop Modules Will be Installed"
+                ENDFLAG=true
+            fi
             read -p "Please Indicate which module suites' to include in your install
             Then press 9 to install:
 
@@ -285,35 +315,6 @@
                 9 ) FLAG=Install; ENDFLAG=true; continue;;
                 x ) FLAG=Exit; return;
             esac
-            #Feedback to the user
-            if [ "$YAKUAKEGET" == true ] || [ "$ALLGET" == true ]; then
-                echo "The Yakuake Console will be Installed"
-            fi
-            if [ "$EXTENSIONSGET" == true ] || [ "$ALLGET" == true ]; then
-                echo "Firefox Extensions will be Installed"
-            fi
-            if [ "$PROGRAMMINGGET" == true ] || [ "$ALLGET" == true ]; then
-                echo "The Programming Suite will be Installed"
-            fi
-            if [ "$GAMMINGGET" == true ] || [ "$ALLGET" == true ]; then
-                echo "The Gaming Suite will be Installed"
-            fi
-            if [ "$MEDIAEDITGET" == true ] || [ "$ALLGET" == true ]; then
-                echo "The Media Editing Suite will be Installed"
-            fi
-            if [ "$MULTIMEDIAGET" == true ] || [ "$ALLGET" == true ]; then
-                echo "The Multi-Media Suite will be Installed"
-            fi
-            if [ "$OFFICEGET" == true ] || [ "$ALLGET" == true ]; then
-                echo "The Office Suite will be Installed"
-            fi
-            if [ "$DESIGNGET" == true ] || [ "$ALLGET" == true ]; then
-                echo "The Design Suite will be Installed"
-            fi
-            if [ "$DESIGNGET" == true ] && [ "$OFFICEGET" == true ] && [ "$MULTIMEDIAGET" == true ] && [ "$MEDIAEDITGET" == true ] && [ "$GAMMINGGET" == true ] && [ "$PROGRAMMINGGET" == true ] && [ "$EXTENSIONSGET" == true ] && [ "$YAKUAKEGET" == true ]; then
-                echo "All Desktop Modules Will be Installed"
-                ENDFLAG=true
-            fi
         done
 
         if [ "$YAKUAKEGET" == true ] || [ "$ALLGET" == true ]; then
