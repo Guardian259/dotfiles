@@ -284,7 +284,54 @@
 
     #Server Enviorment Suite
     function serverEn() {
-        getDocker
+    
+        ENDFLAG=false
+        while [ "$ENDFLAG" == false ] 
+        do
+            clear
+            #Feedback to the user
+            if [ "$DOCKERGET" == true ] || [ "$ALLGET" == true ]; then
+                DOCKER="\e[1;30;42m[Installing]\e[0m"
+            else
+                DOCKER="\e[30;1;40m[Not Installing]\e[0m"
+            fi
+            if [ "$DESIGNGET" == true ]; then
+                ENDFLAG=true
+            fi
+
+            PROMPT="\e[5m>\e[0m"
+
+            echo -e "Please Indicate which module suites' to include in your install
+            Then press 2 to install:
+            
+            [0] ALL
+
+            [1] Docker Suite $DOCKER
+
+            [2] Install Modules
+            [x] Exit Prompt
+            \e[5m>\e[0m" 
+            read FLAG
+
+            case "${FLAG}" in
+                0 ) FLAG=All; ALLGET=true; ENDFLAG=true; ;;
+                1 ) FLAG=Docker; 
+                    if [ "$DOCKERGET" == true ]; then 
+                        DOCKERGET=false
+                    else
+                        DOCKERGET=true
+                    fi ;;
+                2 ) FLAG=Install; ENDFLAG=true; continue;;
+                x ) FLAG=Exit; EXITFLAG=true;
+            esac
+            if [ "$EXITFLAG" == true ]; then
+            echo "Exiting Install..."
+            exit 1;
+            fi
+        if [ "$DOCKERGET" == true ] || [ "$ALLGET" == true ]; then
+            getDocker
+        fi
+        done
     }
 
     #Desktop Enviorment Suite
@@ -363,9 +410,9 @@
                 0 ) FLAG=All; ALLGET=true; ENDFLAG=true; ;;
                 1 ) FLAG=Yakuake; 
                     if [ "$YAKUAKEGET" == true ]; then 
-                        YAKUAKE=false
+                        YAKUAKEGET=false
                     else
-                        YAKUAKE=true
+                        YAKUAKEGET=true
                     fi ;;
                 2 ) FLAG=Firefox;
                     if [ "$EXTENSIONSGET" == true ]; then 
