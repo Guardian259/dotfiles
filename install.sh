@@ -48,7 +48,7 @@
 
             [0] ALL
 
-            [1] Custom Shell Prompt w/ Repo Branch Embed $SHELLPROMPT
+            [1] Custom Shell Prompt w/ Git Repo Branch Version $SHELLPROMPT
             [2] Ranger CLI file manager $RANGER
             [3] Pacstall - The AUR for Ubuntu $PACSTALL
 
