@@ -64,13 +64,13 @@
                     else
                         SHELLPROMPTGET=true
                     fi ;;
-                2 ) COMMONFLAG=Firefox; RANGERGET=true;
+                2 ) COMMONFLAG=Firefox;
                     if [ "$RANGERGET" == true ]; then 
                         RANGERGET=false
                     else
                         RANGERGET=true
                     fi ;;
-                3 ) COMMONFLAG=Programming; PACSTALLGET=true;
+                3 ) COMMONFLAG=Programming;
                     if [ "$PACSTALLGET" == true ]; then 
                         PACSTALLGET=false
                     else
