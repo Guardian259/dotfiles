@@ -25,19 +25,16 @@
             clear
             #Feedback to the user
             if [ "$SHELLPROMPTGET" == true ] || [ "$ALLCOMMONGET" == true ]; then
-                echo "The Custom Shell Prompt w/ Repo Branch Embed will be Installed"
                 SHELLPROMPT="\e[1;30;42m[Installing]\e[0m"
             else
                 SHELLPROMPT="\e[30;1;40m[Not Installing]\e[0m"
             fi
             if [ "$RANGERGET" == true ] || [ "$ALLCOMMONGET" == true ]; then
-                echo "Ranger CLI file manager will be Installed"
                 RANGER="\e[1;30;42m[Installing]\e[0m"
             else
                 RANGER="\e[30;1;40m[Not Installing]\e[0m"
             fi
             if [ "$PACSTALLGET" == true ] || [ "$ALLCOMMONGET" == true ]; then
-                echo "Pacstall - The AUR for Ubuntu will be Installed"
                 PACSTALL="\e[1;30;42m[Installing]\e[0m"
             else
                 PACSTALL="\e[30;1;40m[Not Installing]\e[0m"
