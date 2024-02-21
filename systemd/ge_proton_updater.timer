@@ -1,0 +1,10 @@
+[Unit]
+Description=Run ge_proton_updater every 
+
+[Timer]
+OnCalendar=*-*-1,15 18:00:00
+Persistent=true
+Unit=ge_proton_updater.service
+
+[Install]
+WantedBy=timers.target

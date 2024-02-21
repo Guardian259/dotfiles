@@ -1,0 +1,12 @@
+[Unit]
+Description=GE Proton Updater
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/bash /root/.scripts/update-ge-proton.sh
+Type=simple
+Restart=always
+
+[Install]
+WantedBy=default.target
+RequiredBy=network.target
