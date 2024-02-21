@@ -58,9 +58,24 @@
             read COMMONFLAG
             case "${COMMONFLAG}" in
                 0 ) COMMONFLAG=All; ALLCOMMONGET=true; ENDCOMMONFLAG=true; ;;
-                1 ) COMMONFLAG=Yakuake; SHELLPROMPTGET=true; ;;
-                2 ) COMMONFLAG=Firefox; RANGERGET=true; ;;
-                3 ) COMMONFLAG=Programming; PACSTALLGET=true; ;;
+                1 ) COMMONFLAG=Yakuake;
+                    if [ "$SHELLPROMPTGET" == true ]; then 
+                        SHELLPROMPTGET=false
+                    else
+                        SHELLPROMPTGET=true
+                    fi ;;
+                2 ) COMMONFLAG=Firefox; RANGERGET=true;
+                    if [ "$RANGERGET" == true ]; then 
+                        RANGERGET=false
+                    else
+                        RANGERGET=true
+                    fi ;;
+                3 ) COMMONFLAG=Programming; PACSTALLGET=true;
+                    if [ "$PACSTALLGET" == true ]; then 
+                        PACSTALLGET=false
+                    else
+                        PACSTALLGET=true
+                    fi ;;
                 4 ) COMMONFLAG=Install; ENDCOMMONFLAG=true; continue;;
                 5 ) COMMONFLAG=Exit; return;
             esac
@@ -344,14 +359,54 @@
 
             case "${FLAG}" in
                 0 ) FLAG=All; ALLGET=true; ENDFLAG=true; ;;
-                1 ) FLAG=Yakuake; YAKUAKEGET=true; ;;
-                2 ) FLAG=Firefox; EXTENSIONSGET=true; ;;
-                3 ) FLAG=Programming; PROGRAMMINGGET=true; ;;
-                4 ) FLAG=Gamming; GAMMINGGET=true; ;;
-                5 ) FLAG=Media Editing; MEDIAEDITGET=true; ;;
-                6 ) FLAG=Multi Media; MULTIMEDIAGET=true; ;;
-                7 ) FLAG=Office; OFFICEGET=true; ;;
-                8 ) FLAG=Design; DESIGNGET=true; ;;
+                1 ) FLAG=Yakuake; 
+                    if [ "$YAKUAKEGET" == true ]; then 
+                        YAKUAKE=false
+                    else
+                        YAKUAKE=true
+                    fi ;;
+                2 ) FLAG=Firefox;
+                    if [ "$EXTENSIONSGET" == true ]; then 
+                        EXTENSIONSGET=false
+                    else
+                        EXTENSIONSGET=true
+                    fi ;;
+                3 ) FLAG=Programming;
+                    if [ "$PROGRAMMINGGET" == true ]; then 
+                        PROGRAMMINGGET=false
+                    else
+                        PROGRAMMINGGET=true
+                    fi ;;
+                4 ) FLAG=Gamming;
+                    if [ "$GAMMINGGET" == true ]; then 
+                        GAMMINGGET=false
+                    else
+                        GAMMINGGET=true
+                    fi ;;
+                5 ) FLAG=Media Editing; 
+                    if [ "$MEDIAEDITGET" == true ]; then 
+                        MEDIAEDITGET=false
+                    else
+                        MEDIAEDITGET=true
+                    fi ;;
+                6 ) FLAG=Multi Media; 
+                    if [ "$MULTIMEDIAGET" == true ]; then 
+                        MULTIMEDIAGET=false
+                    else
+                        MULTIMEDIAGET=true
+                    fi ;;
+                7 ) FLAG=Office; 
+                    if [ "$OFFICEGET" == true ]; then 
+                        OFFICEGET=false
+                    else
+                        OFFICEGET=true
+                    fi ;;
+                8 ) FLAG=Design; 
+                    if [ "$DESIGNGET" == true ]; then 
+                        DESIGNGET=false
+                    else
+                        DESIGNGET=true
+                    fi ;;
                 9 ) FLAG=Install; ENDFLAG=true; continue;;
                 x ) FLAG=Exit; EXITFLAG=true;
             esac
@@ -359,7 +414,7 @@
             echo "Exiting Install..."
             exit 1;
             fi
-            
+
         done
            if [ "$YAKUAKEGET" == true ] || [ "$ALLGET" == true ]; then
             echo "Installing Yakuake Console"
