@@ -359,7 +359,53 @@
             echo "Exiting Install..."
             exit 1;
             fi
+            
         done
+           if [ "$YAKUAKEGET" == true ] || [ "$ALLGET" == true ]; then
+            echo "Installing Yakuake Console"
+            nala install -y yakuake
+        fi
+        #Installing Discord
+        echo "Installing Discord..."
+        wget -qO discord.deb "https://discord.com/api/download/development?platform=linux&format=deb"
+        nala install -y ./discord.deb
+        #Installing Thunderbird
+        echo "Installing Thunderbird..."
+        nala install -y thunderbird
+        #Installing Firefox Extensions
+        echo "Installing Firefox..."
+        nala install -y firefox
+        #Installing Nordvpn
+        if ask "Would you like to install Nordvpn? (Y/n)"; then
+            echo "Installing Nordvpn..."
+            sh <(wget -qO - https://downloads.nordcdn.com/apps/linux/install.sh)
+        fi
+        if [ "$EXTENSIONSGET" == true ] || [ "$ALLGET" == true ]; then
+            for file in firfox/*
+            do
+                echo "Symlinking Firefox Extensions List into /etc/firefox/ ..."
+                ln -s "$(realpath "$file")" /etc/firefox/
+            done
+        fi    
+        if [ "$PROGRAMMINGGET" == true ] || [ "$ALLGET" == true ]; then
+            getCoding
+        fi
+        if [ "$GAMMINGGET" == true ] || [ "$ALLGET" == true ]; then
+            getGaming
+        fi
+        if [ "$MEDIAEDITGET" == true ] || [ "$ALLGET" == true ]; then
+            getMediaEditing
+        fi
+        if [ "$MULTIMEDIAGET" == true ] || [ "$ALLGET" == true ]; then
+            getMultiMedia
+        fi
+        if [ "$OFFICEGET" == true ] || [ "$ALLGET" == true ]; then
+            getOffice
+        fi
+        if [ "$DESIGNGET" == true ] || [ "$ALLGET" == true ]; then
+            getDesigning
+        fi
+        
     }
 
     function installPrompt() {
