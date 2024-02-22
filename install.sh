@@ -328,10 +328,10 @@
             echo "Exiting Install..."
             exit 1;
             fi
+        done
         if [ "$DOCKERGET" == true ] || [ "$ALLGET" == true ]; then
             getDocker
         fi
-        done
     }
 
     #Desktop Enviorment Suite
