@@ -20,6 +20,7 @@
 - [Yakuake](https://github.com/KDE/yakuake) - Dropdown Terminal Inspired by Quake
 - [Discord](https://discord.com/) - Instant Messaging & VoIP Software
 - [Thunderbird](https://www.thunderbird.net/en-US/) - Email Client
+- [Birdtray](https://github.com/gyunaev/birdtray) - System Tray Extension for Thunderbird
 - [Nordvpn](https://nordvpn.com/) - VPN Client
 - Firefox Extension Preset
 
@@ -37,6 +38,7 @@
 - [Lutris](https://lutris.net/) - Gaming & Emulator Platform
 - [Bottles](https://usebottles.com/) - Emulator For Windows Software (TBA)
 - [Minecraft](https://www.minecraft.net/en-us) - Minecraft Launcher
+- [Wallpaper Engine Plugin](https://github.com/catsout/wallpaper-engine-kde-plugin) - Compatibility Plugin for Wallpaper Engine and KDE (TBA)
 
 ### **Media Editing Suite**
 - [Inkscape](https://inkscape.org/) - Vector Graphics Editor

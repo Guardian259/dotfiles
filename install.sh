@@ -476,6 +476,8 @@
         #Installing Thunderbird
         echo "Installing Thunderbird..."
         nala install -y thunderbird
+        echo "Installing Birdtray..."
+        nala install -y birdtray
         #Installing Firefox Extensions
         echo "Installing Firefox..."
         nala install -y firefox
