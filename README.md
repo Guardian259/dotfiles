@@ -63,7 +63,7 @@
 
 ## Copy the commands below and run them in your terminal, then follow the prompts provided, and thats it.
 ```sh
-    git clone https://git.salmans.dev/Guardian/dotfiles.git .dotfiles
+    git clone https://github.com/Guardian259/dotfiles.git .dotfiles
     cd .dotfiles
     ./install.sh
 ```
