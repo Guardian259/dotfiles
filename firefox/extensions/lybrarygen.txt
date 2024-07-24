@@ -1,0 +1,8 @@
+"github.com/aminomancer/uc.css.js": {
+"installation_mode": "normal_installed",
+"install_url": "https://addons.mozilla.org/firefox/downloads/latest/libgen-engine/latest.xpi"
+},
+"thirdiron.com": {
+"installation_mode": "normal_installed",
+"install_url": "https://addons.mozilla.org/firefox/downloads/latest/libkey-nomad/latest.xpi"
+},

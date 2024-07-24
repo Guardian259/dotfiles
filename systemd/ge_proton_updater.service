@@ -3,8 +3,8 @@ Description=GE Proton Updater
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/bash /root/.scripts/update-ge-proton.sh
 Type=simple
+ExecStart=/usr/bin/bash /home/guardian/.dotfiles/update-ge-proton.sh
 Restart=always
 
 [Install]

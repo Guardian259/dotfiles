@@ -1,0 +1,8 @@
+"CNico": {
+"installation_mode": "normal_installed",
+"install_url": "https://addons.mozilla.org/firefox/downloads/latest/sci-hub-addon/latest.xpi"
+},
+"github.com/djfdat/sci-hub-scholar": {
+"installation_mode": "normal_installed",
+"install_url": "https://addons.mozilla.org/firefox/downloads/latest/sci-hub-scholar/latest.xpi"
+},

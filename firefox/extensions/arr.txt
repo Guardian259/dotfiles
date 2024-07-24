@@ -1,0 +1,4 @@
+"robgreen.me": {
+"installation_mode": "normal_installed",
+"install_url": "https://addons.mozilla.org/firefox/downloads/latest/sonarr-radarr-lidarr-search/latest.xpi"
+},

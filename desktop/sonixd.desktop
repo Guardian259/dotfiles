@@ -1,0 +1,9 @@
+[Desktop Entry]
+Comment=Launch Sonixd
+Exec=/home/guardian/Programs/Sonixd/Sonixd-0.15.5-linux-x86_64.AppImage
+GenericName=Music Player
+Name=Sonixd
+NoDisplay=false
+StartupNotify=false
+Type=Application
+Categories=Audio;AudioVideo;

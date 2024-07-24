@@ -7,10 +7,12 @@
 ## Common Suite
 -----
 - Custom Shell Prompt W/ Repo Branch Embed
+- [FZF](https://github.com/junegunn/fzf) - CLI Fuzy Finder
 - [Ranger](https://github.com/ranger/ranger) - CLI File Manager
 - [Pacstall](https://github.com/pacstall/pacstall) - AUR for Ubuntu
-- [Neofetch](https://github.com/dylanaraps/neofetch) - System Information Shell Tool
+- [Fastfetch](https://github.com/fastfetch-cli/fastfetch) - System Information Shell Tool
 - [Htop](https://htop.dev/) - Interactive Process Manager
+- [Btop](https://github.com/aristocratos/btop) - Interactive Monitor of Resources & Process Manager
 ## Server Sided Suite
 ------
 - [Docker](https://www.docker.com/) - Open-source Software for Deploying & Running of Containerized Applications
@@ -18,10 +20,15 @@
 ## Desktop Environment Suite
 ------
 - [Yakuake](https://github.com/KDE/yakuake) - Dropdown Terminal Inspired by Quake
+- [WebCord](https://github.com/SpacingBat3/WebCord) - Discord & Spacebar Compatible Instant Messaging & VoIP Software W/ Audio Streaming compatibility.
 - [Discord](https://discord.com/) - Instant Messaging & VoIP Software
+   - Canary - Beta Branch
+   - Development - Alpha Branch
+- [Filelight](https://github.com/KDE/filelight) - Disk Space Usage Visualizing Tool
 - [Thunderbird](https://www.thunderbird.net/en-US/) - Email Client
 - [Birdtray](https://github.com/gyunaev/birdtray) - System Tray Extension for Thunderbird
 - [Nordvpn](https://nordvpn.com/) - VPN Client
+- [Tor Browser](https://www.torproject.org/) - Tor Web Browser
 - Firefox Extension Preset
 
 ### **Programming Suite**
@@ -38,7 +45,7 @@
 - [Lutris](https://lutris.net/) - Gaming & Emulator Platform
 - [Bottles](https://usebottles.com/) - Emulator For Windows Software (TBA)
 - [Minecraft](https://www.minecraft.net/en-us) - Minecraft Launcher
-- [Wallpaper Engine Plugin](https://github.com/catsout/wallpaper-engine-kde-plugin) - Compatibility Plugin for Wallpaper Engine and KDE (TBA)
+- [Wallpaper Engine Plugin](https://github.com/catsout/wallpaper-engine-kde-plugin) - Compatibility Plugin for Wallpaper Engine and KDE
 
 ### **Media Editing Suite**
 - [Inkscape](https://inkscape.org/) - Vector Graphics Editor
@@ -50,7 +57,7 @@
 - [Youtube-dl](https://github.com/yt-dlp/yt-dlp) - Youtube Downloader W/ Sponsor Block Integration
 - [vlc](https://www.videolan.org/vlc/) - Cross-Platform Media Player
 - [Jellyfin](https://github.com/jellyfin/jellyfin-media-player) - Personal Media Player
-- [Sonixd](https://github.com/jeffvli/sonixd) - Subsonic & Jellyfin Compatible Media Player (TBA)
+- [Sonixd](https://github.com/jeffvli/sonixd) - Subsonic & Jellyfin Compatible Media Player
 ### **Office Suite**
 - [Zotero](https://www.zotero.org/) - Personal Research Assistant
 - [Calibre](https://calibre-ebook.com/) - E-book Library Manager
@@ -63,6 +70,7 @@
 
 ## Copy the commands below and run them in your terminal, then follow the prompts provided, and thats it.
 ```sh
+    cd ~
     git clone https://github.com/Guardian259/dotfiles.git .dotfiles
     cd .dotfiles
     ./install.sh

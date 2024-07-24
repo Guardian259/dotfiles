@@ -21,21 +21,24 @@
                 echo "Checksum mismatch exiting..."
             fi
     }
-
     ####################################
     ####### Updater Starts Here ########
     ####################################
-    #PROTONGE_VERSION=$(curl --head https://github.com/JannisX11/blockbench/releases/latest | tr -d '\r' | grep '^location' | sed 's/.*\/v//g')
-    #CUR_DIR=$(pwd)
-    ##Checks if proton-ge-history.txt exists and generates it if not
-    #if [ ! -f "$CUR_DIR/proton-ge-history.txt" ]; then
-    #    touch "$CUR_DIR/proton-ge-history.txt"
-    #    echo "$PROTONGE_VERSION" >> "$CUR_DIR"/proton-ge-history.txt
-    #    getProtonGE
-    #fi
-    ##pulls the previous ProtonGE Version number for comparision
-    #PREVIOUS_VERSION=$( tail -n 1 "$CUR_DIR"/proton-ge-history.txt ) 
-    #if [ "$PROTONGE_VERSION" !=  "$PREVIOUS_VERSION" ] && [ "$PROTONGE_VERSION" -gt "$PREVIOUS_VERSION" ]; then
-    #    getProtonGE
-    #fi
-    getProtonGE
+    PROTONGE_VERSION=$(curl -s https://api.github.com/repos/GloriousEggroll/proton-ge-custom/releases/latest | grep tag_name | grep 'GE-Proton' | cut -d'n' -f3 | cut -d'"' -f1)
+    #pulls the previous ProtonGE Version number for comparision
+    PREVIOUS_VERSION_STRING=$( ls ~/.steam/root/compatibilitytools.d/ | grep -v ".tar.gz" | grep 'GE-Proton' | cut -d'n' -f2 | sort -n -r )
+    read -r -a PREVIOUS_VERSION_ARRAY <<< "$PREVIOUS_VERSION_STRING"
+    CURRENT_VERSION=${PREVIOUS_VERSION_ARRAY[0]}
+    CURRENT_MAJOR_VERSION=$($CURRENT_VERSION | cut -d'-' -f1)
+    CURRENT_MINOR_VERSION=$($CURRENT_VERSION | cut -d'-' -f2)
+    PROTONGE_MAJOR_VERSION=$($PROTONGE_VERSION | cut -d'-' -f1)
+    PROTONGE_MINOR_VERSION=$($PROTONGE_VERSION | cut -d'-' -f2)
+    if [ "$PROTONGE_MAJOR_VERSION" -gt "$CURRENT_MAJOR_VERSION" ]; then
+        getProtonGE
+        exit 1
+    elif [ "$PROTONGE_MAJOR_VERSION" == "$CURRENT_MAJOR_VERSION" ]; then
+        if [ "$PROTONGE_MINOR_VERSION" -gt "$CURRENT_MINOR_VERSION" ]; then
+            getProtonGE
+            exit 1
+        fi
+    fi

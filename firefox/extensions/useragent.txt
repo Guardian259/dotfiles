@@ -1,0 +1,8 @@
+"add0n.com/useragent-switcher.html": {
+"installation_mode": "normal_installed",
+"install_url": "https://addons.mozilla.org/firefox/downloads/latest/user-agent-string-switcher/latest.xpi"
+},
+"speedvitals.com": {
+"installation_mode": "normal_installed",
+"install_url": "https://addons.mozilla.org/firefox/downloads/latest/speedvitals/latest.xpi"
+},
